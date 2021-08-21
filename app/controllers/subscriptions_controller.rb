@@ -6,15 +6,12 @@ class SubscriptionsController < ApplicationController
 
     def show
         @subscription = Subscription.find(params[:id]) 
-    end
-
-    def new
-        @subscription = Subscription.new()
         authorize @subscription
     end
+
       
     def create
-      @subscription = Subscription.new(subscription_params)
+      @subscription = Subscription.new(subscriptions_params)
       @subscription.user = current_user
       @subscription.course = set_course
       authorize @subscription
@@ -40,7 +37,7 @@ class SubscriptionsController < ApplicationController
     
         private
         def subscriptions_params
-          params.require(:subscription).permit(:name, :user_id, :course_id, :completed, :chapter_completed )
+          params.require(:subscription).permit(:course_id)
         end
 
         def set_subscription
@@ -48,7 +45,7 @@ class SubscriptionsController < ApplicationController
         end
       
         def set_course
-          @course =Course.find(params[:course_id])  
+          @course =Course.find(params[:subscription][:course_id])  
         end
 
 
