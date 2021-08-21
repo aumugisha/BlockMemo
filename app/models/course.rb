@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
-    has_many :chapters
-    has_many :courses
+
+  has_many :chapters, dependent: :destroy
+
 end
