@@ -32,6 +32,8 @@ gem 'devise'
 gem 'pundit'
 
 
+gem 'bootstrap', '~> 4.3.1'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
