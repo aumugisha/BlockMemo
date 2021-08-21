@@ -1,0 +1,16 @@
+<div class="container form-group">
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :username %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :address %>
+
+  
+   
+  <%= f.submit %>
+<% end %>
+
+</div>
