@@ -8,6 +8,7 @@
 
 User.destroy_all
 Course.destroy_all 
+Chapter.destroy_all
 
 User.create(email: 'test@test.com', password: '123456', password_confirmation: '123456')
 course = Course.create(name: 'Blockchain fundamentals')
