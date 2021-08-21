@@ -10,12 +10,14 @@ class SubscriptionsController < ApplicationController
 
     def new
         @subscription = Subscription.new()
-        end
+        authorize @subscription
+    end
       
     def create
       @subscription = Subscription.new(subscription_params)
       @subscription.user = current_user
       @subscription.course = set_course
+      authorize @subscription
     
         if @subscription.save
           redirect_to subscriptions_path
