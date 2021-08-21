@@ -1,0 +1,12 @@
+<div class="container text-center">
+    <h1>User profile - <%= @user.username %> </h1>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
+<p><%= @user.first_name %></p>
+<p><%= @user.last_name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.phone %></p>
+<p><%= @user.address %></p>
+
+   
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> 
