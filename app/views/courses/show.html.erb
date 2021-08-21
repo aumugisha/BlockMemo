@@ -1,3 +1,9 @@
 <div class="container text-center">
-    <h1>Course page</h1>
+    <h1>Course page - <%= @course.name %></h1>
+    <p><%= @course.topic %> - level: <%= @course.level %> </p>
+    <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
+    
 </div>
+
+<%= link_to "All chapters", course_chapters_path(@course), {:style=>'color:blue'} %>
+
