@@ -9,3 +9,5 @@ class CoursesController < ApplicationController
         authorize @course 
     end
 end
+
+
