@@ -1,0 +1,18 @@
+<div class="container text-center">
+    <h1>Here are all the chapters of <%= @course.name %></h1>
+</div>
+
+<% @chapters.each do |chapter|  %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title text-center"><%= chapter.order %> - <%= chapter.name %> </h4>
+              <h6 class="card-subtitle text-muted text-center"><%= chapter.summary %></h6>
+              <p class="card-text p-y-1">level : <%= chapter.level %></p>
+              <% if @subscription.chapter_completed >= chapter.order %>
+              <%= link_to "Details", course_chapter_path(chapter.course, chapter), class: "btn btn-primary" %>
+              <% end %> 
+            </div>
+          </div>
+        </div>
+    <% end %>
