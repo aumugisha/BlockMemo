@@ -3,3 +3,5 @@
 <h2><%= @subscription.course.name %> </h2>
 <h2><%= @subscription.user.email %> </h2>
 <p>Début : <%= @subscription.created_at %> </p>
+
+<%= link_to "Start", course_chapter_path(@subscription.course, @subscription), class: "btn btn-primary" %>
