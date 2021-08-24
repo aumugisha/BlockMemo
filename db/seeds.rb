@@ -9,8 +9,10 @@
 User.destroy_all
 Course.destroy_all 
 Chapter.destroy_all
+Subscription.destroy_all
 
 User.create(email: 'test@test.com', password: '123456', password_confirmation: '123456')
+
 course = Course.create(name: 'Blockchain fundamentals')
 
 Chapter.create(name: 'Why Blockchain?', level:1, content: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30. In 2018, that same number of bitcoins is estimated at $83 million in value!

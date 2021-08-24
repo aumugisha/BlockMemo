@@ -7,7 +7,12 @@ class ChaptersController < ApplicationController
     end
 
     def show
+        set_subscription
+        if params[:course_id].present?
+        @chapter = Chapter.find(params[:course_id]) 
+        else
         @chapter = Chapter.find(params[:id]) 
+        end
         authorize @chapter
     end
 

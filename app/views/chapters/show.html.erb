@@ -6,3 +6,5 @@
 <p> <%= @chapter.content %>  </p>
 
 </div>
+
+<%= link_to 'Next', subscription_path(@subscription.id), method: :PATCH , class: "btn btn-danger" %>

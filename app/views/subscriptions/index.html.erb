@@ -32,7 +32,22 @@
 <div class="header">
   <h2>Please select a Course to start with</h2>
 </div>
-
+    <div class="container", style="background-color: white; height:1er; width:90%">   
+    
+    <% @subscriptions.each do |subscription|  %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title text-center"><%= subscription.course.name %> - <%= subscription.user.first_name %> </h4>
+              <h6 class="card-subtitle text-muted text-center"><%= subscription.course.level %></h6>
+              <p class="card-text p-y-1">level : <%= subscription.course.chapters.first.summary %></p>
+              <%= link_to "Details", course_chapter_path(subscription.course, subscription), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    
+     </div>
 <div class="container_slider"> 
             <div class="slider">
 
@@ -138,6 +153,8 @@
         <span >Start</span>
         <div class="dot"></div>
     </div>
+    
+
 
 </body>
 
