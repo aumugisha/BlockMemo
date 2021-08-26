@@ -7,13 +7,15 @@ class ChaptersController < ApplicationController
     end
 
     def show
-        set_subscription
-        if params[:course_id].present?
-        @chapter = Chapter.find(params[:course_id]) 
+        if set_subscription
+        @chapter = Chapter.find(@subscription.chapter_completed) 
         else
-        @chapter = Chapter.find(params[:id]) 
+        redirect_to dashboard_path
         end
         authorize @chapter
+        
+
+        
     end
 
 
@@ -22,7 +24,7 @@ class ChaptersController < ApplicationController
     end
 
     def set_subscription
-        @subscription =Subscription.where("user_id = ? AND course_id = ?", current_user.id, params[:course_id]) 
+        @subscription =Subscription.find_by(user_id: current_user.id ,course_id: params[:course_id])
     end
 
 end

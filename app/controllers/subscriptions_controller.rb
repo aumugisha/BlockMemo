@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
 
     def index
+        @courses = Course.all
         @subscriptions = Subscription.all
     end
 
@@ -16,12 +17,12 @@ class SubscriptionsController < ApplicationController
           @subscription = Subscription.new(subscriptions_params)
           @subscription.user = current_user
           @subscription.course = set_course
-          @chapter = Chapter.where("course_id = ?", params[:course_id])
+          @chapter = @course.chapters.first  
           if @subscription.save
-            redirect_to subscription_path(@subscription)
+            redirect_to course_chapter_path(@course,@chapter)
             
           else
-            render "new"
+            redirect_to dashboard_path
           end
           else
             redirect_to dashboard_path
@@ -34,10 +35,11 @@ class SubscriptionsController < ApplicationController
     end
 
     def update
-      @subscription =Subscription.find(params[:subscription]) 
+      @subscription =Subscription.find(params[:id]) 
       @subscription.chapter_completed += 1
-      raise
-        redirect_to subscription_path(@subscription)
+      redirect_to course_chapter_path(@subscription.course.chapters.find_by(order:@subscription.chapter_completed ))
+      authorize @subscription
+  
       end
     
   
