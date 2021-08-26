@@ -12,8 +12,6 @@ Chapter.destroy_all
 Subscription.destroy_all
 
 User.create(email: 'test@test.com', password: '123456', password_confirmation: '123456')
-
-=======
 #course number 1
 
 course = Course.create(name: 'Blockchain fundamentals')
@@ -79,13 +77,13 @@ Chapter.create(name: "How Hashing Maintains the Blockchains Integrity" , level:2
 
 In this way, the records in the blockchain cannot be altered. In other words, the records are said to be immutable.
 
-But what if someone tampers with a block and recalculates the hashes for every single block? Does hashing still guarantee that the blockchain is fully secure? Let’s find out in the next exercise.' , , order: 2, course_id:2)
+But what if someone tampers with a block and recalculates the hashes for every single block? Does hashing still guarantee that the blockchain is fully secure? Let’s find out in the next exercise.', order: 2, course_id:2)
 
 Chapter.create(name: 'Is Hashing Enough to Secure the Blockchain?', level:2, content: "We ended the last exercise on a cryptic note — what if an attacker tampers with a block and then somehow covers their tracks by recalculating the hash of each subsequent block to make the blockchain valid once again? Let’s explore this concept through an example.
 
 Let’s say we have three blocks: A, B, and C with hashes X123, Y456, and Z789 that represent the state of each block. If an attacker tampers with Block A, its contents get changed, so its hash gets changed — let’s say the hash is changed from X123 to 123X. Block B no longer points to Block A because the previous hash X123 no longer matches with the new hash 123X. The only way for the attacker to make the chain valid is by fixing this mismatch. For Block B to point to Block A, its previous hash needs to be changed from X123 to 123X.
 
-However, this also counts as tampering with Block B’s data. Thus, its hash also gets changed. If the attacker repeats this process for all subsequent blocks, they will have succeeded in creating a valid copy of the blockchain!", , order: 2, course_id:2)
+However, this also counts as tampering with Block B’s data. Thus, its hash also gets changed. If the attacker repeats this process for all subsequent blocks, they will have succeeded in creating a valid copy of the blockchain!" , order: 2, course_id:2)
 
 Chapter.create(name: 'Securing the Blockchain Further', level:2, content: " Believe it or not, the security measures introduced in the previous exercises are not enough to secure the entirety of the blockchain. There needs to be another layer of security to protect the blockchain from outside interference. Allowing anyone to tamper with their copy of the blockchain and trick everyone on the network to update their copies is a big problem. 
 An additional requirement needs to be introduced that makes it infeasible for someone to tamper with subsequent blocks and take over the blockchain.
