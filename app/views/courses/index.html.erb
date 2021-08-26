@@ -3,24 +3,13 @@
 </div>
 
 
+<div class= "flex-container">
 
-  <div class="py-5">
-    <div class="container">
-      <div class="row hidden-md-up">
-      <% @courses.each do |course|  %>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h4 class="card-title"><%= course.name %> </h4>
-              <h6 class="card-subtitle text-muted"><%= course.topic %></h6>
-              <p class="card-text p-y-1"><%= course.level %></p>
-              <%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
-              <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-danger" %>
-            </div>
-          </div>
-        </div>
-    <% end %>
+<div class="flex-container container_main">
+<h1>test</h1>
+</div>
 
-      </div>
-    </div>
-  </div>
+<div class="flex-container container_secundary">
+<h1>test</h1>
+</div>
+
