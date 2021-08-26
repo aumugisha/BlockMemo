@@ -35,11 +35,18 @@ class SubscriptionsController < ApplicationController
     end
 
     def update
-      @subscription =Subscription.find(params[:id]) 
-      @subscription.chapter_completed += 1
-      redirect_to course_chapter_path(@subscription.course.chapters.find_by(order:@subscription.chapter_completed ))
+      @subscription =Subscription.find(params[:id]) # @subscription.update(chapter_complet:"value" )
+      if @subscription.chapter_completed < @subscription.course.chapters.last.order
+        @subscription.chapter_completed += 1
+        @subscription.save
+        redirect_to course_chapter_path(@subscription.course, @subscription.course.chapters.find_by(order:@subscription.chapter_completed ))
+      else
+        redirect_to dashboard_path
+      end
+
+
       authorize @subscription
-  
+
       end
     
   

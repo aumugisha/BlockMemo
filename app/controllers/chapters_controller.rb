@@ -7,12 +7,10 @@ class ChaptersController < ApplicationController
     end
 
     def show
-        if set_subscription
-        @chapter = Chapter.find(@subscription.chapter_completed) 
-        else
-        redirect_to dashboard_path
-        end
+        set_subscription
+        @chapter = Chapter.find(@subscription.chapter_completed)
         authorize @chapter
+
         
 
         
