@@ -1,7 +1,6 @@
 <div class="container text-center">
     <h1>Here is the list of all courses available</h1>
 </div>
-
   <%= form_tag courses_path, method: :get do %>
     <%= text_field_tag :query,
      params[:query],
@@ -38,3 +37,4 @@
       </div>
     </div>
   </div>
+

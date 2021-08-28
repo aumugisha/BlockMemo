@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  resources :users, only: [:show, :edit, :update] 
   get "dashboard", to: "subscriptions#index"
+  get "about", to: "pages#about"
+  get "contact", to: "pages#contact"
+  get "faq", to: "pages#faq"
+
+  resources :users, only: [:show, :edit, :update] 
+  
   resources :subscriptions, except: [:edit, :index]
+  
 
   
   
