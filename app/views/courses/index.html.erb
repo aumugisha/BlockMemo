@@ -11,10 +11,7 @@
    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 
-
-<<<<<<< HEAD
-=======
-
+  <%= link_to "back to course", courses_path, class:"btn btn-primary" %>
 
   <div class="py-5">
     <div class="container">
@@ -32,8 +29,12 @@
           </div>
         </div>
     <% end %>
+    <% if @chapters  %>
+      <% @chapters.each do |chapter| %>
+        <%= link_to chapter.name, course_chapter_path(chapter.course, chapter)%> 
 
+      <% end %>
+    <% end %>
       </div>
     </div>
   </div>
->>>>>>> 6341d491d25fac5a2bb472ac377a34b1fb1d858f
