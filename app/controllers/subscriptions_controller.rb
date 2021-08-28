@@ -20,7 +20,6 @@ class SubscriptionsController < ApplicationController
           @chapter = @course.chapters.first  
           if @subscription.save
             redirect_to course_chapter_path(@course,@chapter)
-            
           else
             redirect_to dashboard_path
           end

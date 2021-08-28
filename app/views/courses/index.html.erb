@@ -2,16 +2,18 @@
     <h1>Here is the list of all courses available</h1>
 </div>
 
+<%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %>
 
 <div class= "flex-container">
-
+<% @courses.each do |course|  %>
 <div class="flex-container container_main">
-<h1>test</h1>
+<%= course.name %>
+<br>
+<%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
+<%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-alert" %>
 </div>
+<% end %>
 
-<div class="flex-container container_secundary">
-<h1>test</h1>
-</div>
 
 <footer>
 </footer>

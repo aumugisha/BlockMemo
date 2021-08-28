@@ -8,7 +8,7 @@ class ChaptersController < ApplicationController
 
     def show
         set_subscription
-        @chapter = Chapter.find(@subscription.chapter_completed)
+        @chapter = Chapter.find_by(order: @subscription.chapter_completed, course_id: @subscription.course_id )
         authorize @chapter
 
         
