@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
   get "faq", to: "pages#faq"
+  get "ui", to: "pages#ui"
 
   resources :users, only: [:show, :edit, :update] 
   
