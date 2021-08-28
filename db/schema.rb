@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_080128) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "chapter_completed", default: 0
+    t.integer "chapter_completed", default: 1
     t.boolean "completed", default: false
     t.bigint "course_id", null: false
     t.bigint "user_id", null: false
