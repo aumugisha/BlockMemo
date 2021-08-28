@@ -4,4 +4,6 @@
 <h2><%= @subscription.user.email %> </h2>
 <p>Début : <%= @subscription.created_at %> </p>
 
-<%= link_to "Start", course_chapter_path(@subscription.course, @subscription), class: "btn btn-primary" %>
+<%= link_to "Start", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "btn btn-primary" %>
+
+<%= @subscription.chapter_completed %>
