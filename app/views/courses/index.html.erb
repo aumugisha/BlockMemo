@@ -1,7 +1,44 @@
 <div class="container text-center">
     <h1>Here is the list of all courses available</h1>
 </div>
+  <%= form_tag courses_path, method: :get do %>
+    <%= text_field_tag :query,
+     params[:query],
+      class: "form-control",
+      placeholder: "Find a course"
+    %>
+   <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+  <% if params[:query].present? %>
+    <%= link_to "back to course", courses_path, class:"btn btn-primary" %>
+  <% end %>
 
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row hidden-md-up">
+      <% @courses.each do |course|  %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title"><%= course.name %> </h4>
+              <h6 class="card-subtitle text-muted"><%= course.topic %></h6>
+              <p class="card-text p-y-1"><%= course.level %></p>
+              <%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
+              <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% if @chapters  %>
+      <% @chapters.each do |chapter| %>
+        <%= link_to chapter.name, course_chapter_path(chapter.course, chapter)%> 
+
+      <% end %>
+    <% end %>
+      </div>
+    </div>
+  </div>
 <%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %>
 
 <div class= "flex-container">
