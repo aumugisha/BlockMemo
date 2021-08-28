@@ -1,0 +1,21 @@
+<h1>Test page</h1>
+<br>
+<h2> <%= @test.question %></h2>
+
+<br>
+<ol>
+<% @test.answers.each do |answer| %>
+<li>
+<%= answer %>
+</li>
+<% end  %>
+</ol>
+<h3> <%= @test.passed %></h3>
+
+<div class="container form">
+<%= simple_form_for [@test.chapter, @test], method: :patch do |f| %>
+  <%= f.select :choice, [@test.answers[0], @test.answers[1], @test.answers[2]] %>   
+  <%= f.submit %>
+<% end %>
+
+</div>

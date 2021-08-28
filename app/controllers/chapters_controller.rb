@@ -10,10 +10,6 @@ class ChaptersController < ApplicationController
         set_subscription
         @chapter = Chapter.find_by(order: @subscription.chapter_completed, course_id: @subscription.course_id )
         authorize @chapter
-
-        
-
-        
     end
 
 

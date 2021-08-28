@@ -46,6 +46,12 @@ The exchange of Bitcoin is possible due to an underlying technology that secures
 After you complete this course, you will have a basic foundation of blockchain principles. You will also have the opportunity to create your own mini blockchain where you will transform these concepts into code.',
 summary: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30', order: 1, course: course)
 
+Test.create(question: " What is the meaning of life", answers: ["A", "B", "C"], correct_answer: "B", chapter: course.chapters.first)
+Test.create(question: " What is the meaning of life 2 ", answers: ["A", "B", "C"], correct_answer: "B", chapter: course.chapters.first)
+Test.create(question: " What is the meaning of life 3 ", answers: ["A", "B", "C"], correct_answer: "B", chapter: course.chapters.first)
+Test.create(question: " What is the meaning of life 4 ", answers: ["A", "B", "C"], correct_answer: "B", chapter: course.chapters.first)
+Test.create(question: " What is the meaning of life 5 ", answers: ["A", "B", "C"], correct_answer: "B", chapter: course.chapters.first)
+
 Chapter.create(name: 'What is Blockchain?', level:1, content:'The blockchain is similar to a permanent book of records that keeps a log of all transactions that have taken place in chronological order.
 
 Let’s envision a bank transaction in which there are three parties: the sender, the bank, and the recipient. In order to ensure that there are no fraudulent transactions, the bank acts as the central authority between the parties.
