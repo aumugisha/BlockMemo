@@ -16,16 +16,19 @@
 
 <%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %>
 
-<div class= "flex-container">
-<% @courses.each do |course|  %>
-<div class="flex-container container_main">
-<%= course.name %>
-<br>
-<%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
-<%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-alert" %>
+<div class="row">
+  <% @courses.each do |course|  %>
+      <div class="column">
+        <div class="card">
+          <%= image_tag "Ramiro.jpg" %>
+          <div class="container_about">
+            <h2><%= course.name %></h2>
+            <div class="align-self-end">
+            <p class="title"><%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %></p>
+            <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-alert" %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
-
-
-<footer>
-</footer>
