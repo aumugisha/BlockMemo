@@ -13,14 +13,17 @@ html {
 
 .column {
   float: left;
-  width: 33.3%;
+  width: 25%;
   margin-bottom: 16px;
   padding: 0 12px;
+  
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
+  text-align: center;
+  
 }
 
 .about-section {
@@ -56,6 +59,7 @@ html {
   text-align: center;
   cursor: pointer;
   width: 100%;
+  text-align: end;
 }
 
 .button_about:hover {
