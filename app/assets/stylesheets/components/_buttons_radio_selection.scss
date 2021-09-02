@@ -40,7 +40,7 @@ label {
 
 /* the checked style using the :checked pseudo class */
 [type="radio"]:checked + span:before {
-  background: green;
+  background: rgb(17,58,100);
   box-shadow: 0 0 0 0.25em #000;
 }
 
@@ -55,14 +55,14 @@ label {
 
 fieldset {
   font-size: 1em;
-  border: 2px solid #000;
+  border: 2px solid rgb(17,58,100);
   padding: 2em;
   border-radius: 0.5em;
 }
 
 legend {
   color: #fff;
-  background: #000;
+  background: rgb(169,206,232);
   padding: 0.25em 1em;
   border-radius: 1em;
 }

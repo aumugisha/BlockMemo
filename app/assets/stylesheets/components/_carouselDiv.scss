@@ -1,0 +1,21 @@
+.carouselDiv {
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.carouselDiv-flex{
+
+  flex: 1 1 auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    color: rgb(17,58,100);
+
+}
+

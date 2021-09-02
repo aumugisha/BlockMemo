@@ -7,19 +7,20 @@
 section {
   width: 100%;
   display: inline-block;
-  background: #333;
+  background: rgb(17,58,100);
   height: 50vh;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
   text-decoration: underline;
+	margin-top: 8px;
 }
 
 .footer-distributed{
   left: 0;
   bottom: 0;
   width: 100%;
-	background: #666;
+	background: rgb(169,206,232);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -41,22 +42,11 @@ section {
 	width: 40%;
 }
 
-/* The company logo */
-
-.footer-distributed h3{
-	color:  #ffffff;
-	font: normal 36px 'Open Sans', cursive;
-	margin: 0;
-}
-
-.footer-distributed h3 span{
-	color:  lightseagreen;
-}
 
 /* Footer links */
 
 .footer-distributed .footer-links{
-	color:  #ffffff;
+	color:  black;
 	margin: 20px 0 12px;
 	padding: 0;
 }
@@ -83,7 +73,7 @@ section {
 }
 
 .footer-distributed .footer-center i{
-	background-color:  #33383b;
+	background-color:  rgb(17,58,100);
 	color: #ffffff;
 	font-size: 25px;
 	width: 38px;
@@ -102,7 +92,7 @@ section {
 
 .footer-distributed .footer-center p{
 	display: inline-block;
-	color: #ffffff;
+	color: rgb(17,58,100);
   font-weight:400;
 	vertical-align: middle;
 	margin:0;
@@ -116,7 +106,7 @@ section {
 }
 
 .footer-distributed .footer-center p a{
-	color:  lightseagreen;
+	color:  rgb(17,58,100);
 	text-decoration: none;;
 }
 
@@ -142,7 +132,7 @@ section {
 
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color:  #92999f;
+	color:  rgb(17,58,100);
 	font-size: 13px;
 	font-weight: normal;
 	margin: 0;
@@ -150,7 +140,7 @@ section {
 
 .footer-distributed .footer-company-about span{
 	display: block;
-	color:  #ffffff;
+	color:  rgb(17,58,100);
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 20px;
@@ -165,7 +155,7 @@ section {
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color:  rgb(17,58,100);
 	border-radius: 2px;
 
 	font-size: 20px;

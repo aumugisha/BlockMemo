@@ -1,3 +1,5 @@
+<body>
+  
 
 <div class="container text-center">
     <h1>Here are all the chapters of <%= @course.name %></h1>
@@ -11,7 +13,38 @@
 <% end %>
 </div>
 
-<!--
+
+<% @chapters.each do |chapter|  %>
+            <div class="card" style="width: 18rem;">
+              <%= image_tag "Logo-small.png" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= chapter.order %> - <%= chapter.name %></h5>
+                <p class="card-text"><%= chapter.summary %></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Level : <%= chapter.level %></li>
+              </ul>
+  <% if @subscription.nil? %>            
+              <div class="card-body">
+              <a href="#" class="card-link">Subscribe to access chapters</a>
+  <% else %>     
+      <% if @subscription.chapter_completed >= chapter.order %>
+                <a href="#" class="card-link"><%= link_to "Details", course_chapter_path(chapter.course, chapter), class: "btn btn-primary" %></a>
+        <% else %>  
+          <%= link_to "Complete previous chapters to access", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "btn btn-danger" %>      
+      <% end %>    
+              </div>
+            </div>
+  <% end %>
+ <% end %>
+
+
+ <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button-hover" %>
+
+
+</body>
+
+<!-- No Slider
 <% @chapters.each do |chapter|  %>
         <div class="col-md-4">
           <div class="card">
@@ -36,6 +69,8 @@
      <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "btn btn-danger" %>
 
 -->
+
+<!-- 3D Slider
     
           <div class="slider-container text-center">
       <% counter=1 %>
@@ -69,6 +104,7 @@
                         </div>
           </div>
 
+-->
 
 
 
