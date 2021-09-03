@@ -9,10 +9,13 @@ class ChaptersController < ApplicationController
     def show
         set_subscription
         @chapter = Chapter.find_by(order: @subscription.chapter_completed + 1 , course_id: @subscription.course_id )
+        if @chapter.nil?
+            @chapter = @subscription.course.chapters.first
+        end
         authorize @chapter
     end
 
-
+private
     def set_course
         @course = Course.find(params[:course_id])
     end

@@ -15,7 +15,11 @@ class TestsController < ApplicationController
             @subs = Subscription.where("user_id = ? AND course_id = ?", current_user.id, @test.chapter.course.id).first
             @subs.chapter_completed += 1
             @subs.save
-            redirect_to course_chapter_path(@test.chapter.course, Chapter.find_by(order: @subs.chapter_completed + 1))
+            if @subs.chapter_completed < @subs.course.chapters.last.order
+                redirect_to course_chapter_path(@test.chapter.course, Chapter.find_by(order: @subs.chapter_completed + 1))
+              else
+                redirect_to dashboard_path
+              end
         else
             redirect_to course_chapter_path(@test.chapter.course,@test.chapter)
             
@@ -24,3 +28,4 @@ class TestsController < ApplicationController
     end
 
 end
+

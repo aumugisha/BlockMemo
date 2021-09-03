@@ -1,11 +1,10 @@
-<body>
-  
+<div class="container">
 
-<div class="container text-center">
+<div class="container">
     <h1>Here are all the chapters of <%= @course.name %></h1>
 </div>
-<div class="container text-center"> 
 
+<div> 
 <%= link_to "Dashboard", dashboard_path, class: "btn btn-alert" %>
 <%= link_to "All courses", courses_path, class: "btn btn-primary" %>
 <% if !@subscription.nil? %>
@@ -13,6 +12,7 @@
 <% end %>
 </div>
 
+<div>
 
 <% @chapters.each do |chapter|  %>
             <div class="card" style="width: 18rem;">
@@ -28,7 +28,7 @@
               <div class="card-body">
               <a href="#" class="card-link">Subscribe to access chapters</a>
   <% else %>     
-      <% if @subscription.chapter_completed >= chapter.order %>
+      <% if @subscription.chapter_completed + 1 >= chapter.order  %>
                 <a href="#" class="card-link"><%= link_to "Details", course_chapter_path(chapter.course, chapter), class: "btn btn-primary" %></a>
         <% else %>  
           <%= link_to "Complete previous chapters to access", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "btn btn-danger" %>      
@@ -40,10 +40,8 @@
 
 
  <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button-hover" %>
-
-
-</body>
-
+ </div>
+</div>
 <!-- No Slider
 <% @chapters.each do |chapter|  %>
         <div class="col-md-4">
