@@ -237,5 +237,3 @@ const touchSlide = (() => {
 })()
 
 */
-require("trix")
-require("@rails/actiontext")
