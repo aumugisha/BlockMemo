@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :chapters, only:[] do
-    resources :tests, only: [:show, :update]
+    resources :tests, only: [:edit, :update]
   end
   root to: 'pages#home'
 
