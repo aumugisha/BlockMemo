@@ -10,13 +10,13 @@
  
   letter-spacing: .08em;
   color: #fff;
-  background: #0090C0;
+  background: rgb(17,58,100);
   border: solid 1px #fff;
   border-radius: 6px;
   @include transition(.35s ease all);
   
   &:hover{
-    background: #007DA7;
+    background: rgb(84,162,210);
     box-shadow: 0 0 3px rgba(black, .5) inset;
   }
 }
