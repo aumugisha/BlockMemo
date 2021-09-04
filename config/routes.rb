@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   get "ui", to: "pages#ui"
 
   resources :users, only: [:show, :edit, :update] 
-  resources :reviews do
-    resources :reviews, only: [ :new, :create ]
-  end
+  
 
   resources :subscriptions, except: [:edit, :index]
   
   resources :courses, only: [:index, :show] do
+    resources :reviews, only: [ :new, :create ]
     resources :chapters, only: [:index, :show]
   end
 

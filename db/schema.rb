@@ -58,8 +58,10 @@ ActiveRecord::Schema.define(version: 2021_09_02_200406) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
+    t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_reviews_on_course_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_200406) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chapters", "courses"
+  add_foreign_key "reviews", "courses"
   add_foreign_key "subscriptions", "courses"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tests", "chapters"
