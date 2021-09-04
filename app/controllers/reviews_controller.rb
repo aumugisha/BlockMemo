@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @course = Course.find(params[:course_id])
     @review.course = @course
     authorize @course, :show?
-    @review.save
+    @review.comment
     redirect_to course_path(@course)
   end
 
