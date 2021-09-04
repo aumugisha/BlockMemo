@@ -253,64 +253,316 @@ summary: 'Two examples if scenarios with the use of BlockChain', order: 5, cours
 
 #course number 2
 
-course = Course.create(name: 'Blockchain fundamentals advanced')
+course = Course.create(name: 'Blockchain and its Properties')
 
-Chapter.create(name: 'Adding More Blocks', level:2, content: 'In this exercise, we’ll explore how blocks are confirmed and added to the blockchain.
+Chapter.create(name: 'Chapter I : What is Blockchain?', level:2, 
 
-The first step in adding blocks is verifying transactions. This means making sure that transactions haven’t been swapped or duplicated. For simplicity, we will assume that all participants know how to verify transactions and that they will verify them honestly. As you progress through this lesson, you will explore how verification really works in later exercises.
-
-The next step is establishing a consensus in the network. In other words, the entire network needs to agree to the transactions.
-
-Assuming everyone honestly verified the transactions, a random participant broadcasts their block to the entire network. If more than 51% of the participants agree with the block, a consensus has been reached, and the block is now said to be confirmed!
-
-However, the network might not agree on the first try. This would happen if someone tried to share an invalid block. The network would reject the attempt at introducing a fake transaction!
-
-The key takeaway from this exercise is that — as long as the majority of participants verify transactions honestly, the blockchain remains secure.' ,
-summary: " After you complete this course you will be able to learn more advanced concept on the blockchain" , order: 2, course: course)
+content: 'Blockchain is a tamper-proof distributed digital ledger (register). <br><br>
+Characteristics and Properties of Blockchain<br>
+●	Safe<br>
+●	Secure<br>
+●	Transparent<br>
+●	Distributed<br>
+●	Decentralized → not controlled by a single authority (centralized)<br><br>
+Blockchain can be compared to the invention of the wheel, motor, internet that revolutionized the world → 4th Industrial Revolution<br><br>
 
 
-Chapter.create(name: "How Hashing Maintains the Blockchains Integrity" , level:2, content: 'In a blockchain, each block has a unique hash and a link to the previous block’s hash. If a participant decides to tamper with a block by modifying the transactions, the block’s unique hash gets changed. However, the following block does not update to reflect this change — it still points to the previous block’s hash. Thus, there is a mismatch between hashes and the link between blocks is broken. This results in an invalid copy of the blockchain.
-
-In this way, the records in the blockchain cannot be altered. In other words, the records are said to be immutable.
-
-But what if someone tampers with a block and recalculates the hashes for every single block? Does hashing still guarantee that the blockchain is fully secure? Let’s find out in the next exercise.', order: 2, course_id:2)
-
-Chapter.create(name: 'Is Hashing Enough to Secure the Blockchain?', level:2, content: "We ended the last exercise on a cryptic note — what if an attacker tampers with a block and then somehow covers their tracks by recalculating the hash of each subsequent block to make the blockchain valid once again? Let’s explore this concept through an example.
-
-Let’s say we have three blocks: A, B, and C with hashes X123, Y456, and Z789 that represent the state of each block. If an attacker tampers with Block A, its contents get changed, so its hash gets changed — let’s say the hash is changed from X123 to 123X. Block B no longer points to Block A because the previous hash X123 no longer matches with the new hash 123X. The only way for the attacker to make the chain valid is by fixing this mismatch. For Block B to point to Block A, its previous hash needs to be changed from X123 to 123X.
-
-However, this also counts as tampering with Block B’s data. Thus, its hash also gets changed. If the attacker repeats this process for all subsequent blocks, they will have succeeded in creating a valid copy of the blockchain!" , order: 2, course_id:2)
-
-Chapter.create(name: 'Securing the Blockchain Further', level:2, content: " Believe it or not, the security measures introduced in the previous exercises are not enough to secure the entirety of the blockchain. There needs to be another layer of security to protect the blockchain from outside interference. Allowing anyone to tamper with their copy of the blockchain and trick everyone on the network to update their copies is a big problem. 
-An additional requirement needs to be introduced that makes it infeasible for someone to tamper with subsequent blocks and take over the blockchain.
-Just like how the bank has an accountant to verify transactions manually, the blockchain has a clever technique called Proof-of-Work that accomplishes two important goals:
-It makes it difficult for participants to modify blocks by re-calculating hashes.
-It relies on bulletproof cryptography instead of anonymous participants to verify transactions.
-This essentially creates a trustless system and is the main reason why the blockchain is so secure and powerful. Let’s see how Proof-of-Work actually works in the next exercise.", order: 2, course_id:2)
-
-Chapter.create(name: 'Proof-of-Work', level:2, content: "Since participants on the blockchain network are anonymous users on their computers, we can’t trust them to verify transactions honestly. Proof-of-Work does nothing more than introduce an additional security constraint to verify transactions. This constraint takes the form of a computationally difficult math problem, which means to say that it takes a lot of time even for the computer to solve the problem.
-
-Instead of randomly being chosen to broadcast their unconfirmed block, a special group of participants, also known as miners, now need to solve a problem in order to be eligible to broadcast their block. The problem, also known as Proof-of-Work, takes the form of a guessing game that involves the use of hashing.
-
-The hash function that’s most commonly used to create the hash for the block is the SHA-256. Miners first guess a nonce value, which is then combined with the contents of the block (i.e transactions, timestamp, hash, and previous hash). They repeat this process until the desired hash is generated.
-
-The first miner to produce a proof broadcasts their unconfirmed block together with the correct nonce value. The rest of the network then verifies the calculation. If the majority of the participants agree, the Proof-of-Work for the block is now complete and the block has now been confirmed! The network then moves on to work on the next block.
-
-Here’s an example of a simple problem — find a number which, when combined with the unconfirmed block’s contents, produces a hash whose first four digits equals 0000. Every participant uses their computer and a hash function (typically SHA-256) to find a number that generates a correct hash. Since this a random guessing game, everyone usually starts out with 0 and increases their guesses until they produce an acceptable hash.", order: 2, course_id:2)
+Simple Example to Understand of how Blockchain Works<br>
+Blockchain = Excel Sheet<br>
+●	Blockchain is generally shared among several computers which owns a copy of the blockchain (excel sheet).<br>
+●	These computers are referred to as nodes<br>
+●	Every node on the blockchain network can access the same blockchain (the same excel sheet)<br>
+●	When a transaction gets executed, the blockchain gets automatically updated	<br>
+●	Transactions (set of data) are stored in blocks. Any block can contain a limited number of transactions<br>
+●	Blockchain is secured through cryptography<br><br>
+<h2>Decentralization</h2><br><br> 
+Decentralizing means storing your assets (money, documents, data in a network ( on the internet) which can be easily accessed.<br>
+Every user has plein control of his assets and does not need to rely on any third-party or middle man, or institution or centralized authority.<br>
+You place your trust in the network instead of a single bank or intermediary like a government<br>
+' ,
+summary: "Blockchain is a tamper-proof distributed digital ledger (register).." , order: 1, course: course)
 
 
-Chapter.create(name: 'Deeper into Proof-of-Work', level:2, content: "The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain.
+Chapter.create(name: "Chapter II : Features of Blockchain" , level:2, 
 
-The reason for this is simple — the blockchain network assumes that the longest chain has the most amount of computational work done in finding the Proof-of-Work for each block. Therefore, it is reasonable for the network to think that the longest chain contains the most proven record of transactions.
+content: '
+1.	Decentralization
+2.	Distributed Ledger
+3.	Immutability
+4.	Consensus
 
-If a dishonest participant decides to tamper with a block, they would have to solve the Proof-of-Work for each subsequent block in order to introduce the tampered block into the network. This is computationally infeasible and almost impossible!
+1.	Decentralization
+a.	User controls their data
+b.	No central point of failure and difficult to hack
+c.	Difficult hacking
+d.	Reduce chances of data tampering and misuse of data
+e.	Lower transaction costs (because there is no intermediary nor third-parties)
+f.	Fast and flexible transactions
+g.	Blockchain is accessible by anyone on the network and changes are accessible to anyone as well
+2.	Distributed Ledger
+a.	The distributed ledger records every transaction happening in the network
+b.	Every node has access to a copy of the updated ledger
+c.	Every update and change are reflected almost real-time
+Advantages of distributed ledger
+●	Easier to track movement of goods
+●	Single ledger → all transactions are recorded in 1 single ledger
+●	Easier to access, review, manage and verify
+●	Reduce the complexity of managing multiple ledgers
+Key Terms
+●	Ledger → Record of all transaction
+●	Distributed → The ledger is shared with all the person in the same network
 
-Furthermore, while the participant is busy finding the Proof-of-Work for each block, newer blocks are being added to the blockchain at a faster rate. The participant soon finds out that they are playing a losing battle against the entire network.
+3.	Immutability
+How does immutability work?
+Once data is recorded inside the blockchain is almost impossible to tamper with
+Example - Immutability works exactly like to send an email → When you send a document through an email to your friends, you cannot edit or delete that email.
+The only way would be to ask all of your friends to delete that mail, which is quite difficult.
+4.	Consensus
+a.	After every transaction, a new block is created
+b.	The last participant broadcast the block to all the nodes to be verified.
+c.	Once the block is verified, it is added to the blockchain 
+d.	This process of validation is called consensus
+e.	2 main consensus mechanism used today
+i.	Proof-of-Work - PoW
+ii.	Proof-of-Stake - PoS
 
-What is the key takeaway from all this? A block gets increasingly more tamper-proof as newer blocks are added next to it. Proof-of-Work makes it hard to get through the entire blockchain and allow someone to introduce a fake transaction.", order: 2, course_id:2)
+5.	Solution of Double Spending Problem in the Digital Currencies
+Double Spending is a typical problem of digital currency which has been solved by Blockchain through the consensus mechanism - One of the serious initial concerns with Bitcoin.
+a.	This is a famous issue that Blockchain solves through its consensus mechanism
+b.	Double Spending - spending twice the same currency units
+c.	Digital currencies can be reproduced easily (like every digital assets or products)
+d.	Ex. If a friends share a photo with you through WhatsApp, there are 2 pictures, one in your friend’s phone and one in yours ⇒ Double Spending
 
-#course number 3 - Let's add on the website that the course will be available soon at the moment
+How does Consensus Prevent Double Spending?
+Ex.
+There are 3 people, Lyra, Phil and Matt
+●	Lyra has only 1 Bitcoin with her. 
+●	Lyra sends that Bitcoin to Phil. Simultaneously, Lyra does another transaction and sends the same Bitcoin to Matt as well. 
+●	The second transaction will be rejected by the participating nodes. Why? Let us understand how. 
+●	Every transaction before getting committed to the Blockchain is verified against the ledger records by the nodes. 
+●	So in the first case, when Lyra sends money to Phil, the transaction will be validated against the ledger which will show that Lyra has one Bitcoin with her, that means that she can transfer 1 Bitcoin to Phil. Thus making it a valid transaction. 
+●	But in the second transaction, which Lyra does to Matt when the transaction is validated against the ledger, it gets rejected as there is no Bitcoin left with Lyra so she can’t make any transaction to Matt. Thus mitigating the problem of double spending.
+', 
+summary:'
+1.	Decentralization
+2.	Distributed Ledger
+3.	Immutability
+4.	Consensus' , order: 2, course: course)
 
+Chapter.create(name: 'Chapter III : Components of a Block - Part 1 ', level:2, 
+
+content: "Block - Place where the data of a transaction is stored
+A block is made up of 3 main elements:
+1.	Data, transactions and Information- Any piece of information contained in the block (it depends on the blockchain)
+2.	Hash
+3.	Hash of the previous Block
+
+1.	Data, transactions and Information
+Data contained in each block, depends on the type of Blockchain
+
+2.	Hash
+Unique identifier for the block and the data it contains → combination of the data inside the block.
+Hash is always unique and 2 blocks cannot have the same hash number, exactly like fingerprints.
+As soon as a block is created the hash is generated simultaneously.
+
+Tampering with the block, changes the hash → so if the hash changes, the block is tampered with and it is not the same block.
+
+3.	Hash of the Previous Block
+Hash of the previous block links and chains the following block with the previous one.
+Ex. Block 4 contains hash of block 3 and block 3 contains hash of block 2 and so on.
+
+Any change in the data of a block, leads to a change in its hash
+As discussed earlier any change in the data of a block leads to a change in its hash. In the given figure when we change the data in block 2, the hash of block 2 gets changed as well, which makes the whole blockchain unstable. 
+This happens because each block contains hash of the previous block. When the 2nd block is tampered with,
+the old hash becomes invalid and a new hash is generated for the block. This affects all the subsequent blocks in the chain and thus making all of them invalid. 
+This unique property of the blockchain makes it transparent and secure, as in any case of data tampering whole network gets to know which block got compromised in the blockchain.
+" , 
+summary:"Summary", order: 3, course: course)
+
+Chapter.create(name: 'Chapter IV : Components of a Block - Part 2', level:2, 
+
+content: " 4.	Consensus Mechanism
+Blockchain consensus algorithms.
+Consensus protocols are one of the very crucial aspects of blockchain technology. 
+Consensus Protocol → agreement on something that makes blockchain reliable → through the consensus over the blockchain, the network validate the data added to the Blockchain → Create fairness and equality
+Types of Consensus Mechanism
+
+Proof-of-Work
+Proof-of-Stake
+Differences
+
+Proof-of-Work (PoW)
+
+Characteristics of PoW
+●	Born in 1990
+●	Used by any crypto projects
+●	Uses computational power to solve complex mathematical problems → once a problem is solved, a new virtual coin is created (miners)
+●	Create new virtual coins
+As a miner, a user is required to solve a complex mathematical problem to get rewarded by a new virtual coins for example bitcoins in the Bitcoin network. So let us understand how proof of work and mining works in the context of Bitcoin.
+How does Proof-of-Work Work in the Bitcoin Blockchain
+
+
+Mempool → a recipient which contains all not-yet-verified transactions
+When there are many requests for transactions, miners cannot manage all the transactions at once, so the mempool gets bigger.
+We need to have a small mempool → having a big mempool means that Bitcoin Blockchain is not scalable.
+●	Not-verified transactions are bundled in a mempool
+●	Miners needs to verify the transactions -_> the process of verification is called mining
+●	To verify the transaction, miners need to solve a complex math puzzle → Puzzles are asymmetric, which means hard to solve, but easy to verify by the network
+●	Puzzle solving doesn’t require skill set of the user, but only computational power ⇒ more energy and electricity → hence the environmental problem ⇒ Computer with more powerful processors
+●	Average time to solve  puzzle → 10 minutes
+●	Over time miners start finding it easier to solve the puzzle ⇒ therefore the block generation time also gets reduced from the proposed 10 minutes ⇒ Hence, to increase the difficulty level of the puzzle and to make it more complex the puzzle is revised after every 14 days.
+●	This in turn means that more computational power is required to solve the puzzle henceforth. 
+●	The miner who solves the puzzle first is rewarded with newly minted Bitcoins and network transaction fees.
+●	The verified transaction forms a new block, added then to the blockchain
+Challenge of the Proof-of-Work
+Waste of computing power and electricity
+
+
+Proof-of-Stake (PoS)
+
+Characteristics of Proof-of-Stake (PoS)
+●	Born in 2011
+●	The block is added by a validator, chosen randomly by a randomized system
+●	The selection of a block creator is decided by 2 factors:
+○	How much of that cryptocurrency the validator is owning
+○	For how long he has been hodling that crypto.
+●	Contrary to the proof of work, where the block creation depends on the computational power, the block creation in Proof of stake is directly proportional to the user’s holding of the cryptocurrency or the underlying token of the network.
+●	In proof of stake consensus mechanism, blocks are forged or minted, not mined like in PoW. And users who create these blocks are not known as miners instead they are known as forgers.
+●	Block Creation in PoS is directly proportional to users’ holding the crypto
+●	Block Creators are known as forgers
+●	Forgers (or Block creators) lock up some of their coins.
+●	For verifying the transactions and forging the block, forgers need to lock up some of the points at stake. In this situation the coins are held in the escrow (held as a  guarantee) and in case the users are found to be involved in validating a fraudulent transaction, the stakes get slashed and they also lose their right to choose and as a forger in the future. The basic assumption behind this mechanism is the fact that because the coins are at stake they will be highly motivated to validate the right transactions. In proof of stake mechanism crypto currency units are created initially at the time of launch of the currency and their numbers are also fixed. 
+●	PoS involves a negligible consumption of energy that’s why block creators are not rewarded with the network coins but with the fees
+", 
+summary:"Summary", order: 4, course: course)
+
+Chapter.create(name: 'Chapter V : Components of a Block - Part 3', level:2, 
+
+content: "
+
+5.	Hash and its Hash Functions (Hashing)
+Hashing is an application of cryptography, a fundamental process of the Blockchain. Hashing is the process of giving an alphanumeric value to an input, which is accomplished by the use of a hash function.
+A Hash function is a function which transforms any input to a  fixed length output, no matter how long and big is the input (can be data, movie, a song, text, etc…)
+La funzione di hash o funzione hash produce una sequenza di bit, detta digest, (o una stringa) strettamente correlata con i dati in ingresso. La parola viene dal termine inglese hash, dal verbo to hash, ovvero sminuzzare, 
+pasticciare, che designa originariamente una polpettina fatta di avanzi di carne e verdure; per estensione, 
+indica un composto eterogeneo cui viene data una forma incerta: To make a hash of something vuol dire, infatti, creare confusione, o fare una cosa piuttosto male.
+Ex. of Bitcoin
+Transactions in the BItcoin network work as an input for the hash function and therefore are passed through a hashing algorithm to generate a fixed length output. 
+There are many types of Hashing algorithms available like MD5 and SHA 256 
+Bitcoin uses a Secure Hash Algorithms 256 or referred to as SHA256
+
+Whatever the size of the input
+
+⇒ 
+
+The hash generated will be fixed in his length (fixed length alphanumeric output)
+Why do we need the Hash?
+●	Crucial when dealing with big data info
+●	Hash can be used to track the data instead of dealing with the big amount of input data
+●	Thanks to the hash you manage a fixed length output and not the original input (which can be a big data sets difficult to manage)
+Hash Function Properties, Characteristics
+Property 1 - Even a small change in the input value, change Hash value significantly
+
+Property 2 - Quick Computation or Computational Efficiency 
+ A hashing function requires a certain computational power ⇒ Computers need to finish the mathematical tasks fast and in short time period.
+⇒ When we state that the hash function has to be computationally efficient, we mean that the computer needs to compute fast in order to generate the hash from the input
+Property 3 - Deterministic
+The same input always generates the SAME hash If this wasn’t the case, the hash was useless.
+
+Property 4 - Pre-image Resistance
+Pre-image resistance is the property of hashing function through which the output doesn’t reveal anything about the input
+⇒ the output generated by a Cryptographic Hash Function must not reveal any information about the input data.
+
+As we can observe from the image, we generates an output Hash value from the input X but we cannot decrypt any information which reveals us about the input itself. We do not know what input the hash is referring to.
+When an input X is passed through the Hash function, the hash generated is represented as H(X). Pre-image resistance simply means that even if you know H(X) it must be infeasible for you to determine the corresponding input X
+
+Property 5 - Collision Resistance
+
+The input for a hash function can be any type, size and length. So inputs are infinite.
+The corresponding Hash values are fixed length output, so they are finite
+
+In a scenario like this, two different inputs can have the same Hash → but the property of being collision resistance is that this case should be highly unlikely to happen.
+Even if it happens, the hash function generating the output is encrypted and nobody can decrypt it to find the corresponding input.
+Hash is a one way function
+", 
+ summary:"Summary", order: 5, course: course)
+
+
+Chapter.create(name: 'Chapter VI : Components of a Block - Part 4', level:2, 
+
+content: "
+6.	What are Smart Contracts?
+
+Smart contracts are rules defined and executed by the lines of code on the blockchain.
+●	Smart contracts work like real life contracts
+●	They are completely digital stored in the blockchain 
+●	Smart contracts are Software codes, which are run and executed by the Blockchain
+●	They are based on conditions and rules which trigger automated actions. If conditions are met ⇒ automated action are triggered  ⇒ Smart contracts produce their effects
+Smart contracts are, like real life contracts, agreements which are run by Blockchain, with specific rules/conditions which sets the type of contract. Everytime an condition is met, an automated action is triggered and the smart contract produces its effects.
+Advantages of the Smart Contracts
+●	No Manual intervention required
+●	No middlemen required ⇒  less costs
+●	Cost efficiency
+●	Transparency and trust
+●	Time efficiency
+Smart Contracts are based on a mechanism which involves digital assets and two or more transacting parties. These parties deposit their digital assets into the Blockchain. 
+These assets then get redistributed among the participants once predefined terms in the contract are met. Thus implementation of smart contracts bring in more transparency in the system, which mitigates the issue of fraud. 
+Further it also leads to reduced costs for the participants as there is no third party involved in the transaction.
+
+Smart contracts are like Vending Machines
+These rules then get executed in the physical world by the vending machine.
+Similarly, smart contracts are rules defined and executed by the lines of code on the blockchain.
+
+Insurance companies can benefit of smart contract to reduce costs and increase efficiency
+
+Ex. of Smart Contracts Insurance Industry and Smart Contracts
+Current Inefficiencies of Insurance Industry:
+●	Processing time ⇒ Takes weeks and even months to get claims settled
+●	Processes are outdated and manual
+●	Too much overhead costs for the insurer (customer)
+●	Customers pay high premiums
+Upsides:
+●	Insurance companies can use smart contracts to automate insurance policies. In these smart contracts, conditions and rules are defined under which the claim will be approved or rejected. 
+For example, in case of any catastrophic natural disaster, quantifiable parameters of the event such as speed of the wind or the magnitude of an earthquake can be recorded on to the blockchain. 
+When the parameters meet the defined conditions in the smart contract, the claims processes are triggered immediately and the complete payout amount is released without any human intervention. 
+Implementation of smart contracts not only reduces the overhead costs for the insurer but also brings in a sense of trust and transparency in the system.
+
+Ex. of Smart Contracts in the Pharma Supply Chain
+Keep track of the temperature of the vaccines or drugs during their transportation by linking smart Contracts to IoT devices which keep track of the temperature of the vaccines/drugs/products.
+", 
+summary:"Summary", order: 6, course: course)
+
+Chapter.create(name: 'Chapter VII : What are the Criteria for Choosing Blockchain for a Business?', level:2, 
+
+content: "
+
+1.	Number of Intermediaries
+2.	Database
+3.	Trust
+
+1.	Number of Intermediaries
+a.	High costs and lots of intermediaries 
+b.	Blockchain can cut down costs and remove intermediaries
+For example in case of entertainment industry blockchain can really prove to be a game changer. In the entertainment industry, there is a long chain of intermediaries involved in between the creative artist and the final consumers of his creation. With the implementation of blockchain, the artist or the creator will have the absolute control over his content and he can be paid directly, instead of going through a chain of intermediaries for sharing his creative talent with the world
+
+2.	If you need a Database which is tamper proof
+
+For instance, in a business related to supply chain management, there are multiple stakeholders involved at various stages of the process and it also lacks transparency and real time updates about the consignment. For such a scenario, Blockchain can be a perfect solution. In a Blockchain based system, stakeholders involved in the supply chain will record the information about the consignment on the blockchain platform once they receive the consignment. This in turn will make it feasible to get real time updates and information about the consignment and the location of a consignment will be clearly visible to all the stakeholders involved throughout its journey.
+3.	Trust
+a.	Ina centralized system, fraud actions can be carried out easily
+b.	Centralized DB leads to single point of failure and easy to hack ⇒ Blockchain with its distributed nature, avoids single point of failure
+
+
+", 
+summary:"Summary", order: 7, course: course)
+
+#Course number 3 - Let's add on the website that the course will be available soon at the moment
+
+# course = Course.create(name: 'Blockchain and its Properties')
+
+
+
+#Dummy courses
 i = 1
 10.times do 
 
@@ -359,6 +611,8 @@ puts "Dummy course # #{i}"
 i += 1 
 
 end
+
+# Chapters_Tests
 
 Course.all.each do |course|
 course.chapters.each do |chapter|
