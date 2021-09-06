@@ -3,9 +3,16 @@
 <div class="container text-center">
     <h1>Course page - <%= @course.name %></h1>
     <p><%= @course.topic %> - level: <%= @course.level %> </p>
-    <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
-    
+    <%# <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
+    <%= link_to 'Leave a review', new_course_review_path(course_id: @course), class: "btn btn-alert" %>
+    <%= link_to "All chapters", course_chapters_path(@course), class: "btn btn-alert" %>
 </div>
 
-<%= link_to "All chapters", course_chapters_path(@course), {:style=>'color:blue'} %>
+<ul class="list-group">
+  <% @course.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.comment %></li>
+  <% end %>
+</ul>
+
+
 

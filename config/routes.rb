@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] 
   
+
   resources :subscriptions, except: [:edit, :index]
   
   resources :courses, only: [:index, :show] do
+    resources :reviews, only: [ :new, :create ]
     resources :chapters, only: [:index, :show]
   end
 
