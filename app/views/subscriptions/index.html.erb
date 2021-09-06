@@ -35,7 +35,8 @@
               <h6 class="card-subtitle text-muted"><%= course.topic %></h6>
               <p class="card-text p-y-1"><%= course.level %></p>
               <%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
-              <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-danger" %>
+              <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post, class: "btn btn-danger" %>
+
             </div>
           </div>
         </div>
