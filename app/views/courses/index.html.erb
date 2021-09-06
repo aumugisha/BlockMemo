@@ -23,7 +23,7 @@
           <div class="container_about">
             <h2><%= course.name %></h2>
             <div class="align-self-end">
-            <p class="title"><%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %></p>
+            <p class="title"><%= link_to "Details", course_path(course), class: "btn btn-primary" %></p>
             <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-alert" %></p>
             </div>
           </div>
