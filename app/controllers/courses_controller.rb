@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
 
     def show
       @course = Course.find(params[:id])
+      @subscription =Subscription.find_by(user_id: current_user.id ,course_id: params[:id])
       authorize @course 
     end
 end
