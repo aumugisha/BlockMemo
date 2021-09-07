@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
 belongs_to :course
-validates :content, presence: true
+validates :comment, presence: true
 end

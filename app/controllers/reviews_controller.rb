@@ -10,11 +10,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    # we need `course_id` to associate review with corresponding restaurant
+    # we need `course_id` to associate review with corresponding 
     @course = Course.find(params[:course_id])
     @review.course = @course
     authorize @course, :show?
-    @review.comment
+    @review.save
     redirect_to course_path(@course)
   end
 
