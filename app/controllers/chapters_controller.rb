@@ -8,10 +8,17 @@ class ChaptersController < ApplicationController
 
     def show
         set_subscription
+
+        if params[:wanted].nil?
         @chapter = Chapter.find_by(order: @subscription.chapter_completed + 1 , course_id: @subscription.course_id )
         if @chapter.nil?
             @chapter = @subscription.course.chapters.first
         end
+         else
+            @chapter = Chapter.find_by(order: params[:wanted] , course_id: @subscription.course_id )
+         end
+            
+        raise
         authorize @chapter
     end
 
