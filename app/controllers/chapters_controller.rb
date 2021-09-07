@@ -17,8 +17,6 @@ class ChaptersController < ApplicationController
          else
             @chapter = Chapter.find_by(order: params[:wanted] , course_id: @subscription.course_id )
          end
-            
-        raise
         authorize @chapter
     end
 
