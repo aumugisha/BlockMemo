@@ -1,6 +1,11 @@
 <div class="container text-center">
     <h1><%= @chapter.name %></h1>
 </div>
+<% @chapter.photos.each do |photo| %>
+<% if photo.present? %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<% end %>
 
 <div class="container">
  <%= @chapter.content.html_safe %>

@@ -48,6 +48,7 @@ The blockchain also logs transactions (registra transazioni) between senders and
 The blockchain is just an accurate, and permanent record of all the transactions that have happened amongst the members in that blockchain’s network. 
 In this analogy, each block in the blockchain represents a transaction, and each transaction is connected to the prior transaction to form the entire connected blockchain.
 <br><br><strong>
+<br>
 Key terms:
 </strong><br><br>
 ●	Block: A block is a record or individual transaction or piece of data that is being stored within the blockchain.<br>
@@ -69,7 +70,12 @@ By having the majority of participants validate a new transaction, the blockchai
 
 summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course)
 
-
+5.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 Chapter.create(name: 'Chapter II : What are Blocks in a Blockchain ?', level:1, 
 
 content:'<h2><strong>Blocks</strong></h2><br><br>
