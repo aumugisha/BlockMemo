@@ -7,5 +7,5 @@
 </div>
 
 <%= link_to "Dashboard", dashboard_path, class: "btn btn-alert" %>
-<%= link_to "Back to course", course_chapters_path(@chapter.course_id), class: "btn btn-primary" %>
+<%= link_to "Back to course", course_path(@chapter.course_id), class: "btn btn-primary" %>
 <%= link_to 'Test', edit_chapter_test_path(@chapter), method: :GET , class: "btn btn-danger" %>

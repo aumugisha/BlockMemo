@@ -34,9 +34,9 @@
               <h4 class="card-title"><%= course.name %> </h4>
               <h6 class="card-subtitle text-muted"><%= course.topic %></h6>
               <p class="card-text p-y-1"><%= course.level %></p>
-              <%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
+              <%= link_to "Details", course_path(course), class: "btn btn-primary" %>
 
-              <%= simple_form_for(Subscription.new()) do |f| %>
+              <%= simple_form_for(@subscription) do |f| %>
                 <%= f.hidden_field :course_id, value: course.id %>
                 <%= f.submit value: "Subscribe", class: "btn" %>
               <% end %>
