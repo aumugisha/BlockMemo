@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get "contact", to: "pages#contact"
   get "faq", to: "pages#faq"
   get "ui", to: "pages#ui"
-
+  
   resources :users, only: [:show, :edit, :update] 
   
-
-  resources :subscriptions, except: [:edit, :index]
+  
+  resources :subscriptions, except: [:edit, :new, :index]
   
   resources :courses, only: [:index, :show] do
     resources :reviews, only: [ :new, :create ]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :chapters, only:[] do
-    resources :tests, only: [:show, :update]
+    resources :tests, only: [:edit, :update]
   end
   root to: 'pages#home'
 

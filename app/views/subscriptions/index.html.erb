@@ -10,8 +10,13 @@
               <h4 class="card-title text-center"><%= subscription.course.name %> - <%= subscription.user.first_name %> </h4>
               <h6 class="card-subtitle text-muted text-center"><%= subscription.course.level %></h6>
               <p class="card-text p-y-1">level : <%= subscription.course.level %></p>
-              <p class="card-text p-y-1">Progress : <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
-              <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed), class: "btn btn-primary" %>
+              <% if subscription.chapter_completed >= subscription.course.chapters.last.order %>
+              <p class="card-text p-y-1">Progress : Course completed </p>
+              <% else %>
+                <p class="card-text p-y-1">Progress : <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
+              <% end  %>
+
+              <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "btn btn-primary" %>
             </div>
           </div>
         </div>
@@ -29,8 +34,14 @@
               <h4 class="card-title"><%= course.name %> </h4>
               <h6 class="card-subtitle text-muted"><%= course.topic %></h6>
               <p class="card-text p-y-1"><%= course.level %></p>
-              <%= link_to "Details", course_chapters_path(course), class: "btn btn-primary" %>
-              <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-danger" %>
+              <%= link_to "Details", course_path(course), class: "btn btn-primary" %>
+
+              <%= simple_form_for(@subscription) do |f| %>
+                <%= f.hidden_field :course_id, value: course.id %>
+                <%= f.submit value: "Subscribe", class: "btn" %>
+              <% end %>
+              
+
             </div>
           </div>
         </div>
