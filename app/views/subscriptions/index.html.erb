@@ -1,9 +1,9 @@
-<div class="header">
+<div class="header" style="padding-top: 20px; padding-bottom: 20px">
   <h1 class="text-center">My subscriptions</h1>
 </div>
 
 
-<div class="container">
+<div class="container border border-primary text-center" style="background-color: white; border-radius: 5px; padding-top: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
   <ul class="cards">
     <% @subscriptions.each do |subscription|  %>
     <li class="cards__item">
@@ -13,29 +13,29 @@
           <div class="card__title"><%= subscription.course.name %></div>
           <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px">Progress : <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
           <% subscription.course.chapters[0..subscription.chapter_completed].each do |chapter|  %>
-            <p style="color: black;font-weight: bolder;">
-            <%= chapter.name %>
+            <p style="color: black;font-weight: bold; font-size: 12px"> <%= chapter.name %>
             <% if subscription.chapter_completed>= chapter.order %> 
-              &#9989;
+            &#9989;
             <% else %>
               &#10060;
             <% end %>
-            <br>
-            <br>
+             </p>
           <% end %>
-          <% subscription.course.chapters[subscription.chapter_completed + 1 .. -1].each do |chapter|  %>
-          <p style="color: grey;font-weight: lighter;">
-          Next : <%= chapter.name %>
-        <% end %>
-        </p>
+          <p style="color: grey;font-weight: lighter;font-size: 12px"> Next : <%= subscription.course.chapters[subscription.chapter_completed + 1].name %></p>
+        
       </div>
-      <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button-hove", style: "margin-left: 10px; margin-right: 10px"%>
+      <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
     </div>
     </li>
     <% end  %>
   </ul>
+
+  <%= link_to "Browse all courses", courses_path, class: "button" %>
+<div class="pic-ctn">
+    <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
+    <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
+    <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
+    <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
+    <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
+  </div>
 </div>
-
-
-
-
