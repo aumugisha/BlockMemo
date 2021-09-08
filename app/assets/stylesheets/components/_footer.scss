@@ -1,3 +1,5 @@
+/*
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
 * {
@@ -19,6 +21,7 @@ section {
 .footer-distributed{
   left: 0;
   bottom: 0;
+	position:sticky;
   width: 100%;
 	background: rgb(169,206,232);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -38,13 +41,15 @@ section {
 
 /* Footer left */
 
+/*
+
 .footer-distributed .footer-left{
 	width: 40%;
 }
 
 
 /* Footer links */
-
+/*
 .footer-distributed .footer-links{
 	color:  black;
 	margin: 20px 0 12px;
@@ -67,6 +72,7 @@ section {
 }
 
 /* Footer Center */
+/*
 
 .footer-distributed .footer-center{
 	width: 35%;
@@ -126,6 +132,8 @@ section {
 
 /* Footer Right */
 
+/*
+
 .footer-distributed .footer-right{
 	width: 20%;
 }
@@ -169,6 +177,8 @@ section {
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
+/*
+
 @media (max-width: 880px) {
 
 	.footer-distributed{
@@ -188,4 +198,54 @@ section {
 		margin-left: 0;
 	}
 
+}
+
+*/ 
+
+body.homepage #footer {
+
+	display: none;
+}
+
+footer {
+	padding: 60px 0;
+	background-color: #f8fafa;
+}
+#footer-info {
+	width: 380px;
+	float: left;
+	margin-top: 10px;
+}
+#footer-links {
+	width: 520px;
+	float: right;
+}
+#footer-links ul {
+	width: 150px;
+	float: left;
+	margin-left: 20px;
+}
+#footer-links ul li {
+	margin: 10px 0;
+}
+
+.footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  rgb(17,58,100);
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+.footer-left{
+	width: 40%;
 }
