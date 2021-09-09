@@ -1,5 +1,5 @@
 <div class="header" style="padding-top: 20px; padding-bottom: 20px">
-  <h1 class="text-center">My subscriptions</h1>
+  <h1 class="text-center">My courses</h1>
 </div>
 
 
@@ -9,22 +9,35 @@
     <li class="cards__item">
       <div class="card d-flex flex-column justify-content-between">
         <div class="card__image card__image--fence"></div>
-        <div class="card__content">
-          <div class="card__title"><%= subscription.course.name %></div>
-          <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px">Progress : <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
-          <% subscription.course.chapters[0..subscription.chapter_completed].each do |chapter|  %>
-            <p style="color: black;font-weight: bold; font-size: 12px"> <%= chapter.name %>
-            <% if subscription.chapter_completed>= chapter.order %> 
-            &#9989;
-            <% else %>
-              &#10060;
-            <% end %>
-             </p>
-          <% end %>
-          <p style="color: grey;font-weight: lighter;font-size: 12px"> Next : <%= subscription.course.chapters[subscription.chapter_completed + 1].name %></p>
-        
+          <div class="card__content">
+            <div class="card__title"><%= subscription.course.name %></div>
+              <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
+              <% if  subscription.completed? %>
+              Course completed
+              <% else %>
+              <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
+              <% end %>
+              <br>
+                <%  subscription.course.chapters.each do |chapter| %>
+                  <%  if chapter.order < subscription.chapter_completed  %>
+                     <p style="color: black;font-weight: bolder; font-size: 12px; text-align: left;"><%= chapter.name %> &#9989;</p>
+                  <% end %>
+
+                  <% if chapter.order == subscription.chapter_completed && !chapter.nil? %>
+                    <p style="color: grey;font-weight: bold; font-size: 12px; text-align: left;"><%= chapter.name %> &#10060; </p>
+                  <% end %>
+            
+                  <% if chapter.order > subscription.chapter_completed && !chapter.nil? %>
+                    <p style="color: grey;font-weight: lighter; font-size: 12px; text-align: left;"><%= chapter.name %></p>
+                  <% end %>
+          
+                <% end %>
       </div>
+      <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
       <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+      <% else %>
+      <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+      <% end %>
     </div>
     </li>
     <% end  %>

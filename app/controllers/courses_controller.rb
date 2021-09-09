@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [ :index,  ]
+  
   def index
     if params[:query].present?
       @courses = Course.where("name ILIKE ?", "%#{params[:query]}%")
