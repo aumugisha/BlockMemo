@@ -8,14 +8,17 @@ class ChaptersController < ApplicationController
 
     def show
         set_subscription
-
-        if params[:wanted].nil?
-        @chapter = Chapter.find_by(order: @subscription.chapter_completed + 1 , course_id: @subscription.course_id )
-        if @chapter.nil?
-            @chapter = @subscription.course.chapters.first
-        end
-         else
+        if !params[:wanted].nil?
             @chapter = Chapter.find_by(order: params[:wanted] , course_id: @subscription.course_id )
+        elsif !params[:restart].nil?
+            @chapter = Chapter.find_by(order: 1, course_id: @subscription.course_id )
+            @subscription.chapter_completed = 1
+            @subscription.save
+        else
+            @chapter = Chapter.find_by(order: @subscription.chapter_completed, course_id: @subscription.course_id )
+              if @chapter.nil?
+                @chapter = @subscription.course.chapters.first
+             end
          end
         authorize @chapter
     end

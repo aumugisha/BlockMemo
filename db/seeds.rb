@@ -70,12 +70,13 @@ By having the majority of participants validate a new transaction, the blockchai
 
 summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course)
 
-5.times do |i|
-  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-  puts i
-  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-  file.close
-end
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
 Chapter.create(name: 'Chapter II : What are Blocks in a Blockchain ?', level:1, 
 
 content:'<h2><strong>Blocks</strong></h2><br><br>
@@ -115,7 +116,12 @@ Genesis Block: The genesis block is the first block on the blockchain and it is 
 ',
 
 summary: 'The Block is the brick of the Blockchain. It contains data, different types of data depending on what the Blockchain is used for...', order: 2, course: course)
-
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 
 Chapter.create(name: 'Chapter III : Diving Deeper into Blockchain', level:1, 
 
@@ -131,14 +137,14 @@ Once a block is full, the next set of transactions will have to wait in the memo
 <strong>Key Terms:</strong>
 <br>
 <br>
-●	Transactions: An exchange of value among participants on the blockchain network.<br>
-●	Participants: Individuals, normal people accessing the blockchain network through computers to exchange value and make exchanges, transactions. <br>
+●Transactions: An exchange of value among participants on the blockchain network.<br>
+●Participants: Individuals, normal people accessing the blockchain network through computers to exchange value and make exchanges, transactions.<br>
 <br>
 <br>
 <strong>2.Participants on the blockchain network are anonymous users on their computers</strong>
 <br>
 <br>
-●	*Unconfirmed: *Blocks and transactions that are yet to be verified.
+●Unconfirmed: *Blocks and transactions that are yet to be verified.
 <br>
 <br>
 How do we Add Blocks to the Blockchain?
@@ -189,7 +195,12 @@ Proof-of-Work - A security feature in blockchain to prevent attackers from easil
 ',
 
 summary: 'Unvalidated transactions → As transactions are being carried out, they need to be validated. The Unvalidated transactions are placed in a special location called Mempool, that collects all of the unvalidated transactions..',order: 3, course: course) 
-
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
  
 Chapter.create(name: 'Chapter IV : What is Proof-of-Work (POW) ? ', level:1, 
 
@@ -197,20 +208,28 @@ content:'Proof-of-Work is another layer of security added to the validation of t
 Given that Participants to the validation of the blocks are humans (anonymous behind a computer), we cannot really trust them, so,  a special group of participants, also known as miners, 
 now need to solve a problem in order to be eligible to broadcast their block. The problem, also known as Proof-of-Work, takes the form of a guessing game that involves the use of hashing.
 <br>
-
-The hash function that’s most commonly used to create the hash for the block is the SHA-256. Miners first guess a nonce value, which is then combined with the contents of the block (i.e transactions, timestamp, hash, and previous hash). They repeat this process until the desired hash is generated.
-The first miner to produce a proof broadcasts their unconfirmed block together with the correct nonce value. 
+<br>
+The hash function that’s most commonly used to create the hash for the block is the SHA-256. Miners first guess a nonce value, which is then combined with the contents of the block (i.e transactions, timestamp, hash, and previous hash). 
+They repeat this process until the desired hash is generated.The first miner to produce a proof broadcasts their unconfirmed block together with the correct nonce value.<br>
 The rest of the network then verifies the calculation. If the majority of the participants agree, the Proof-of-Work for the block is now complete and the block has now been confirmed! The network then moves on to work on the next block.
 Here’s an example of a simple problem — find a number which, when combined with the unconfirmed block’s contents, produces a hash whose first four digits equals 0000. 
 Every participant uses their computer and a hash function (typically SHA-256) to find a number that generates a correct hash. Since this a random guessing game, everyone usually starts out with 0 and increases their guesses until they produce an acceptable hash.
 <br>
+<br>
+<br>
 <strong>Key Terms:</strong>
+<br>
 <br>
 ●	Miners: Special participants who calculate the Proof-of-Work to mine new blocks.<br>
 ●	Nonce: A number to be guessed by miners which when combined with the block produces an acceptable hash.<br>
 ', 
 summary:'Proof-of-Work is another layer of security added to the validation of the blocks in the blockchain....', order: 4, course: course)
-
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 
 Chapter.create(name: 'Chapter V :	Diving Deeper into Proof-of-Work ', level:1, 
 
@@ -219,24 +238,29 @@ The reason for this is simple — the blockchain network assumes that the longes
 If a dishonest participant decides to tamper with a block, they would have to solve the Proof-of-Work for each subsequent block in order to introduce the tampered block into the network. This is computationally infeasible and almost impossible!
 Furthermore, while the participant is busy finding the Proof-of-Work for each block, newer blocks are being added to the blockchain at a faster rate. The participant soon finds out that they are playing a losing battle against the entire network.
 What is the key takeaway from all this? A block gets increasingly more tamper-proof as newer blocks are added next to it. Proof-of-Work makes it hard to get through the entire blockchain and allow someone to introduce a fake transaction.
-<br>
+<br><br><br>
 <strong>Key Terms:</strong>
-<br>
-●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br>
-Let’s review the key terms:<br>
-●	Transaction: An exchange of value among participants on the blockchain network.<br>
-●	Participants: Individuals accessing the blockchain network through computers to exchange value.<br>
-●	*Unconfirmed: *Blocks and transactions that are yet to be verified.<br>
-●	Consensus: The process of agreeing to the transactions on the blockchain network.<br>
-●	Hashing: Generating a random string of characters from a given input.<br>
-●	Immutable: Something whose records can’t be changed.<br>
-●	Recalculating Hashes: Replacing the incorrect hash with a “correct” one to validate the chain.<br>
-●	Proof-of-Work: A security feature in blockchain to prevent attackers from easily taking over the blockchain.<br>
-●	Trustless: A feature of blockchain that states how the system doesn’t rely on any participant to verify transactions.<br>
-●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br>
+<br><br>
+●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br><br>
+Let’s review the key terms:<br><br>
+●	Transaction: An exchange of value among participants on the blockchain network.<br><br>
+●	Participants: Individuals accessing the blockchain network through computers to exchange value.<br><br>
+●	*Unconfirmed: *Blocks and transactions that are yet to be verified.<br><br>
+●	Consensus: The process of agreeing to the transactions on the blockchain network.<br><br>
+●	Hashing: Generating a random string of characters from a given input.<br><br>
+●	Immutable: Something whose records can’t be changed.<br><br>
+●	Recalculating Hashes: Replacing the incorrect hash with a “correct” one to validate the chain.<br><br>
+●	Proof-of-Work: A security feature in blockchain to prevent attackers from easily taking over the blockchain.<br><br>
+●	Trustless: A feature of blockchain that states how the system doesn’t rely on any participant to verify transactions.<br><br>
+●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br><br>
 ",
 summary: 'The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain...', order: 5, course: course)
-
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 Chapter.create(name: 'Chapter VI : How BlockChain can be useful ? ', level:1, 
 
 content: "<strong>Scenario</strong>
@@ -252,8 +276,13 @@ There has always been a need of a system that is reliable and robust such that t
 The solution to all of these pain points lies in the Blockchain technology. You might have heard about
 various crypto currencies like Bitcoin ,Ether, Ripple etc and all of these crypto currencies are powered by Blockchain.
 ",
-summary: 'Two examples if scenarios with the use of BlockChain', order: 5, course: course)
-
+summary: 'Two examples if scenarios with the use of BlockChain', order: 6, course: course)
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 
 #parent seed file
 
@@ -288,6 +317,12 @@ You place your trust in the network instead of a single bank or intermediary lik
 ' ,
 summary: "Blockchain is a tamper-proof distributed digital ledger (register).." , order: 1, course: course)
 
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 
 Chapter.create(name: "Chapter II : Features of Blockchain" , level:2, 
 
@@ -355,6 +390,14 @@ summary:'
 3.	Immutability
 4.	Consensus' , order: 2, course: course)
 
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
+
 Chapter.create(name: 'Chapter III : Components of a Block - Part 1 ', level:2, 
 
 content: "Block - Place where the data of a transaction is stored
@@ -384,6 +427,13 @@ the old hash becomes invalid and a new hash is generated for the block. This aff
 This unique property of the blockchain makes it transparent and secure, as in any case of data tampering whole network gets to know which block got compromised in the blockchain.
 " , 
 summary:"Summary", order: 3, course: course)
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
 
 Chapter.create(name: 'Chapter IV : Components of a Block - Part 2', level:2, 
 
@@ -442,6 +492,14 @@ Characteristics of Proof-of-Stake (PoS)
 ", 
 summary:"Summary", order: 4, course: course)
 
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
+
 Chapter.create(name: 'Chapter V : Components of a Block - Part 3', level:2, 
 
 content: "
@@ -493,6 +551,14 @@ Hash is a one way function
 ", 
  summary:"Summary", order: 5, course: course)
 
+#  3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
+
 
 Chapter.create(name: 'Chapter VI : Components of a Block - Part 4', level:2, 
 
@@ -537,6 +603,13 @@ Ex. of Smart Contracts in the Pharma Supply Chain
 Keep track of the temperature of the vaccines or drugs during their transportation by linking smart Contracts to IoT devices which keep track of the temperature of the vaccines/drugs/products.
 ", 
 summary:"Summary", order: 6, course: course)
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
+
 
 Chapter.create(name: 'Chapter VII : What are the Criteria for Choosing Blockchain for a Business?', level:2, 
 
@@ -562,6 +635,12 @@ b.	Centralized DB leads to single point of failure and easy to hack ⇒ Blockcha
 ", 
 summary:"Summary", order: 7, course: course)
 
+# 3.times do |i|
+#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+#   puts i
+#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+#   file.close
+# end
 #Course number 3 - Let's add on the website that the course will be available soon at the moment
 
 # course = Course.create(name: 'Blockchain and its Properties')
@@ -581,32 +660,34 @@ The exchange of Bitcoin is possible due to an underlying technology that secures
 After you complete this course, you will have a basic foundation of blockchain principles. You will also have the opportunity to create your own mini blockchain where you will transform these concepts into code.',
 summary: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30', order: 1, course: course)
 
+
 Chapter.create(name: 'What is Blockchain?', level:1, content:'The blockchain is similar to a permanent book of records that keeps a log of all transactions that have taken place in chronological order.
-
 Let’s envision a bank transaction in which there are three parties: the sender, the bank, and the recipient. In order to ensure that there are no fraudulent transactions, the bank acts as the central authority between the parties.
-
-The blockchain also logs transactions between senders and receivers, except there is no bank or central authority. Instead, the blockchain relies on a public network of computers to verify the transaction. The blockchain is just an accurate, and permanent record of all the transactions that have happened amongst the members in that blockchain’s network. In this analogy, each block in the blockchain represents a transaction, and each transaction is connected to the prior transaction to form the entire connected blockchain.', order: 2, course: course)
+The blockchain also logs transactions between senders and receivers, except there is no bank or central authority. Instead, the blockchain relies on a public network of computers to verify the transaction. 
+The blockchain is just an accurate, and permanent record of all the transactions that have happened amongst the members in that blockchain’s network. In this analogy, each block in the blockchain represents a transaction, 
+and each transaction is connected to the prior transaction to form the entire connected blockchain.', order: 2, course: course)
 
 Chapter.create(name: 'The Blockchain Network', level:1, content: "So how do Blockchain-based applications like Bitcoin and Ethereum validate transactions without a central authority?
-
-  In the blockchain, there are many participants in the network that are constantly checking to ensure that each transaction is valid. Each participant is a computer that owns a copy of the blockchain. These participants cross-reference their copy of the blockchain each time a new block is being introduced. Because this validation depends on multiple participants, the digital record is “decentralized”.
-  
+  In the blockchain, there are many participants in the network that are constantly checking to ensure that each transaction is valid. Each participant is a computer that owns a copy of the blockchain. 
+  These participants cross-reference their copy of the blockchain each time a new block is being introduced. 
+  Because this validation depends on multiple participants, the digital record is “decentralized”.
   In order for a new block to be added, 51% of all of the participants in the blockchain network must verify that the new block is not fraudulent. Once a block has been verified as a valid transaction, it is added to each participant’s copy of the blockchain.
-  
   By having the majority of participants validate a new transaction, the blockchain removes the need for a central authority and automates the completion of transactions, reducing transaction fees while ensuring a high level of security.", order: 3, course: course)
 
+
 Chapter.create(name: 'What are Blocks in the Blockchain?', level:1, content:'Just like bricks are the building blocks of a house, blocks themselves are the building blocks of a blockchain.
+  A block contains transaction data and other important details related to the creation of that block, such as the time when it was created and other unique information.
+  In order to create a block, we must have a record that we wish to store.
+  In this lesson, we will be discussing transaction data. This is just one example, but blocks can hold different types of data depending on what the blockchain is used for. 
+  However, at its heart, a block will always contain a timestamp or the data regarding the time when the block was created. A block will also always contain a unique hash or a unique code produced by combining all the contents within the block itself — 
+  also known as a digital fingerprint. Lastly, a block will also always contain a previous hash or a reference to the prior block’s hash. This reference to the prior block is how blocks chain to one another. We will dive into more details about the hash later. 
+  These attributes about a block are what make it part of a blockchain structure.', order: 4, course: course)
 
-  A block contains transaction data and other important details related to the creation of that block, such as the time when it was created and other unique information. In order to create a block, we must have a record that we wish to store.
-  
-  In this lesson, we will be discussing transaction data. This is just one example, but blocks can hold different types of data depending on what the blockchain is used for. However, at its heart, a block will always contain a timestamp or the data regarding the time when the block was created. A block will also always contain a unique hash or a unique code produced by combining all the contents within the block itself — also known as a digital fingerprint. Lastly, a block will also always contain a previous hash or a reference to the prior block’s hash. This reference to the prior block is how blocks chain to one another. We will dive into more details about the hash later. These attributes about a block are what make it part of a blockchain structure.', order: 4, course: course)
-  
+
 Chapter.create(name: 'Hashing', level:1, content:'Hashing is an application of cryptography that is fundamental to the design of the blockchain. It is a way to generate a seemingly random, but calculated string of letters and numbers from any input. This is accomplished by the use of a hash function.
-
-  Think of a hash function as a machine that takes an object, such as an apple, and turns it into a varying combination of letters and numbers, such as “1a432bf”. The output (“1a432bf”) is known as the hash of the input, the apple. If you give the machine two apples instead of one, it will return a different hash (such as “26f5ce1”).
-  
-  There are many types of machines out there, so the resulting hash varies from machine to machine. Similarly, there are many types of hash functions available. Blockchain uses a cryptographic hash function, meaning that the output is random but deterministic. This means the same input will always produce the same hash. That process is one-way, so the output (hash) cannot be used to produce the original input.', order: 5, course: course)
-
+chine that takes an object, such as an apple, and turns it into a varying combination of letters and numbers, such as “1a432bf”. The output (“1a432bf”) is known as the hash of the input, the apple. If you give the machine two apples instead of one, it will return a different hash (such as “26f5ce1”).
+  There are many types of machines out there, so the resulting hash varies from machine to machine. Similarly, there are many types of hash functions available. Blockchain uses a cryptographic hash function, meaning that the output is random but deterministic. 
+  This means the same input will always produce the same hash. That process is one-way, so the output (hash) cannot be used to produce the original input.', order: 5, course: course)
 Chapter.create(name: 'The Genesis Block', level:1, content: "To recap, a blockchain is similar to a permanent book of records — it keeps an accurate unchanging record of all data, or transactions, stored in chronological order. Each block has a reference to the block’s previous hash. This is how blocks are “chained” together. If a block’s contents are tampered with, the block’s hash changes and the chain breaks, making it difficult to successfully tamper with any one piece of the chain.
 
 Since all blocks in the blockchain have a reference to the previous block, the first block is a little different than the rest. It is known as the Genesis Block. The problem, however, is that the Genesis Block does not have a block before it. So it wouldn’t make sense to have a previous hash stored inside it. To resolve this minor issue, the value of the previous hash is typically hard-coded into the Genesis Block with the default value of zero.", order: 6, course: course)

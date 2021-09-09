@@ -1,14 +1,20 @@
 <div class="container text-center">
     <h1><%= @chapter.name %></h1>
 </div>
-<% @chapter.photos.each do |photo| %>
-<% if photo.present? %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% end %>
 
-<div class="container">
- <%= @chapter.content.html_safe %>
+
+<div class=" container border border-primary text-center d-flex " style="background-color: white; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);" >
+  <div class="container border  d-flex  flex-column" style="background-color: #FAFAFA; height: 100% !important">
+    <% @chapter.photos.each do |photo| %>
+      <% if photo.present? %>
+        <div> <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill , style: "border-radius: 5px; margin: auto"%> </div>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+  <div style="padding: 20px">
+   <%= @chapter.content.html_safe %>
+</div>
 </div>
 
 <%= link_to "Dashboard", dashboard_path, class: "btn btn-alert" %>
