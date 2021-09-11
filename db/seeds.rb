@@ -655,9 +655,7 @@ course = Course.create(name: "Dummy course # #{i}")
 
 Chapter.create(name: 'Why Blockchain?', level:1, content: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30. In 2018, that same number of bitcoins is estimated at $83 million in value!
 
-The exchange of Bitcoin is possible due to an underlying technology that secures and simplifies transactions removing the need for a bank or a central authority. Anyone with an internet connection has the freedom to own and exchange this digital currency. The powerful architecture that drove this revolution was blockchain. Businesses started to realize the potential of blockchain and are rapidly mobilizing to understand and implement it. But, what exactly is blockchain and what makes it so transformative?
-
-After you complete this course, you will have a basic foundation of blockchain principles. You will also have the opportunity to create your own mini blockchain where you will transform these concepts into code.',
+The exchange of Bitcoin is possible due to an underlying technology that secures and simplifies transactions removing the need for a bank or a central authority. Anyone with an internet connection has the freedom to own and exchange this digital currency. The powerful architecture that drove this revolution was blockchain. Businesses started to realize the potential of blockchain and are rapidly mobilizing to understand and implement it. But, what exactly is blockchain and what makes it so transformative?',
 summary: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30', order: 1, course: course)
 
 
@@ -712,4 +710,87 @@ end
 puts  "Seed Done"
 
 
+#Courses_3
 
+course3= Course.create(name: 'Cryptocurrency for Investors')
+
+
+Chapter.create(
+  name: 'What is Cryptocurrency Game Theory: A Basic introduction ',
+  level:1,
+  content: 'What is Cryptocurrency Game Theory? One of the greatest innovations of the 21st century is, undoubtedly, the advent of cryptocurrency.
+  What is that makes the blockchain technology such a breakthrough? Let’s look at the real world and how fiat currency is maintained and stored. 
+  No matter who you are, your money is going to be stored in a centralized location, i.e. the bank. The problem with this model is that you are giving your money over to an entity and it is at the risk of getting compromised because of a variety of reasons. 
+  The blockchain solves this problem by being completely decentralized and corruption free internally. The way it achieves this is by the incorporation of cryptography and game theory.
+  
+  What are market structures?
+
+  Before we understand the concept, we need to go through some basics first.The organization and fundamental characteristics of any market are called market structure. The market structures are differentiated based on many factors like a number of producers, control over prices and barriers to entry. 
+  Based on these factors, there are four different kinds of market structures:
+
+  Perfect Competition.
+  Monopoly.
+  Monopolistic Competition.
+  Oligopoly.
+
+  Perfect Competition
+
+  Perfect competition is a market place where it is easy for anyone to get into the market and individual sellers don’t have any power over the price of the product. 
+  Think of mangoes. It is easy for anyone to get into the market, all that anyone has to do is to grow mangoes. Plus, they can’t willingly change the price of the mangoes. 
+  If one person sells a mango for $10 then the buyer can simply buy it from someone who is selling mangoes for $5.
+
+  Monopoly
+  
+  A monopoly is the polar opposite of a perfect competition. This is a market place which is dominated by one corporation and the barriers to entry are so high that nobody else can enter it. 
+  De beers diamonds are a great example of a monopolistic market.
+  
+  Monopolistic Competition
+
+  This is a marketplace which has a lot of sellers and very low barriers. Their products are similar but not really identical. Think of the pizza delivery service. Now, dominoes and pizza hut have the same product with subtle differences. Obviously one can slightly price their product a little higher based on factors like customer preferences. However, if dominoes price their pizzas way too high, then people will simply go over to pizza hut. 
+  Consequently, if dominoes and pizza hut both start overcharging, since the barriers to entry is so low, another player can come in and take all the .
+
+  Oligopoly
+
+  Oligopolies are market places which are dominated by a few markets and the barriers to entry are high. One of the best examples of an oligopoly is the smartphone market. 
+  The market is dominated by few number of companies like Samsung, Apple, and Huawei. Much like monopolistic competitions, the products are similar but not identical. While this does give them some control over their prices, they don’t really have much of a leeway. If tomorrow, Apple decides to price their iPhones at $4000, apart from the Apple fanatics, most will simply opt for an Android phone. Obviously, they can always get together and decide as a group to mutually increase the prices, but this is called “collusion” and is illegal in many countries, including the United States.
+  
+  So, when they can’t compete by changing prices, how can they get that edge over their competitors? They do so by “non-price competition”, which means competing without changing the price. How do they do that? They do so by changing the look and style of their products and giving a unique experience. However, the most recognizable form of non-price competition is advertising.
+  
+  ',
+
+  
+
+
+  summary: 'If you want to start investing cryptocurrencies this is a great place to start, we dive deeper into tokens and their economies', order: 1, course: course1
+)
+
+Chapter.create(
+  name: 'What is the Game theory?',
+  level:1,
+  content: '
+  Game theory is the study of strategic decision making. This is how many corporations make decisions while keeping in mind the actions that their competitors will take. Game theory was devised by John Van Neumann and Osker Morgenstern in 1944 and was considered a breakthrough in the study of oligopoly markets.
+  Since then the game theory has found a life of its own and has seen widespread implementations in various other technologies and fields.
+  
+  A game theory model has at least 3 components:
+
+  Players: The decision makers. Eg. The managers in the firms.
+  Strategies: The decisions they want to take to further their companies.
+  Payoff: Outcome of the strategies.
+
+  In game theory, there are two types of games.
+
+  Zero sum game: It is a game in which the gain of one player comes at the expense of another player.
+  Non zero sum game: A game where the gain of one player doesn’t come at the expense of another player.
+
+  So, how does one apply game theory? Let’s go back to what we were discussing again, should or shouldn’t a company advertise a particular aspect of their product. Suppose there are two firms A and B.
+
+  The table that you see above is called a “payoff matrix”. The table basically reads like this:
+
+  If Firm A and B both decide to advertise then the payoff for both of them is 4 and three respectively.
+  If Firm A doesn’t advertise and B decides to advertise, then the payoff is 2 and 5.
+  If Firm A advertises and B doesn’t advertise then the payoff is 5 and 1.
+  If both Firms A and B don’t advertise then the payoff is 3 and 2.
+
+  ',
+  order: 2, course: course1
+)
