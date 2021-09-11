@@ -297,7 +297,17 @@ summary: 'Two examples if scenarios with the use of BlockChain', order: 6, cours
 
 #course number 2
 
-course = Course.create(name: 'Blockchain and its Properties')
+course = Course.new(name: 'Blockchain and its Properties')
+
+
+
+
+file = URI.open("https://images.pexels.com/photos/1099339/pexels-photo-1099339.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260.jpg")
+
+course.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
+
+course.save
+
 
 Chapter.create(name: 'Chapter I : What is Blockchain?', level:2, 
 
@@ -662,9 +672,9 @@ i = 1
 
 course = Course.new(name: "Dummy course # #{i}")
 
-file = URI.open("https://images.pexels.com/photos/3097292/pexels-photo-3097292.jpeg")
+file = URI.open("https://images.pexels.com/photos/730552/pexels-photo-730552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg")
 
-course.picture.attach(io: file, filename:"la.jpeg", content_type:'image/jpeg')
+course.picture.attach(io: file, filename:"pexels-david-mcbee-730552.jpg", content_type:'image/jpg')
 course.save
 
 Chapter.create(name: 'Why Blockchain?', level:1, content: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30. In 2018, that same number of bitcoins is estimated at $83 million in value!
