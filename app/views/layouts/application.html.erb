@@ -12,10 +12,9 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless @disable_header %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' unless @disable_footer %>
   </body>
 </html>

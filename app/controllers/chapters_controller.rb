@@ -13,6 +13,7 @@ class ChaptersController < ApplicationController
         elsif !params[:restart].nil?
             @chapter = Chapter.find_by(order: 1, course_id: @subscription.course_id )
             @subscription.chapter_completed = 1
+            @subscription.completed = false
             @subscription.save
         else
             @chapter = Chapter.find_by(order: @subscription.chapter_completed, course_id: @subscription.course_id )
