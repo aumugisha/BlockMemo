@@ -4,19 +4,16 @@
 
 
 <div class="container border border-primary text-center" style="background-color: white; border-radius: 5px; padding-top: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+<h2>Completed courses</h2>
   <ul class="cards">
-    <% @subscriptions.each do |subscription|  %>
+    <% @subscriptions.where("completed= ?", true).each do |subscription|  %>
     <li class="cards__item">
       <div class="card d-flex flex-column justify-content-between">
         <div class="card__image card__image--fence"></div>
           <div class="card__content">
             <div class="card__title"><%= subscription.course.name %></div>
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
-              <% if  subscription.completed? %>
               Course completed
-              <% else %>
-              <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
-              <% end %>
               <br>
                 <%  subscription.course.chapters.each do |chapter| %>
                   <%  if chapter.order < subscription.chapter_completed  %>
@@ -32,23 +29,64 @@
                   <% end %>
           
                 <% end %>
-      </div>
-      <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
-      <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-      <% else %>
-      <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-      <% end %>
+            </div>
+            <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
+            <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+            <% else %>
+            <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+            <% end %>
     </div>
     </li>
     <% end  %>
   </ul>
+</div>
 
-  <%= link_to "Browse all courses", courses_path, class: "button" %>
-<div class="pic-ctn">
+<div class="container border border-primary text-center" style="background-color: white; border-radius: 5px; padding-top: 20px; margin-top:20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+<h2> Ongoing courses</h2>
+  <ul class="cards">
+    <% @subscriptions.where("completed= ?", false).each do |subscription|  %>
+    <li class="cards__item">
+      <div class="card d-flex flex-column justify-content-between">
+        <div class="card__image card__image--fence"></div>
+          <div class="card__content">
+            <div class="card__title"><%= subscription.course.name %></div>
+              <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
+              <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
+              <br>
+                <%  subscription.course.chapters.each do |chapter| %>
+                  <%  if chapter.order < subscription.chapter_completed  %>
+                     <p style="color: black;font-weight: bolder; font-size: 12px; text-align: left;"><%= chapter.name %> &#9989;</p>
+                  <% end %>
+
+                  <% if chapter.order == subscription.chapter_completed && !chapter.nil? %>
+                    <p style="color: grey;font-weight: bold; font-size: 12px; text-align: left;"><%= chapter.name %> &#10060; </p>
+                  <% end %>
+            
+                  <% if chapter.order > subscription.chapter_completed && !chapter.nil? %>
+                    <p style="color: grey;font-weight: lighter; font-size: 12px; text-align: left;"><%= chapter.name %></p>
+                  <% end %>
+          
+                <% end %>
+            </div>
+            <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
+            <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+            <% else %>
+            <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
+            <% end %>
+    </div>
+    </li>
+    <% end  %>
+  </ul>
+</div>
+
+
+<div class="container-fluid text-center border border-primary"  style="background-color: white; border-radius: 5px; padding-top: 20px; margin-top:20px;margin-bottom:20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); width:85%">
+
+<%= link_to "Browse all courses", courses_path, class: "button" %>
+  <div class="pic-ctn">
     <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
     <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
     <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
     <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
     <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
-  </div>
-</div>
+  </div></div>

@@ -17,6 +17,16 @@
 </div>
 </div>
 
-<%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-alert" %>
-<%= link_to "Back to course", course_path(@chapter.course_id), class: "btn btn-primary" %>
-<%= link_to ' Take the Test', edit_chapter_test_path(@chapter), method: :GET , class: "btn btn-danger" %>
+<div class="d-flex justify-content-around" style="margin:50px">
+<%= link_to 'Previous chapter', course_chapter_path(@chapter.course, @chapter, wanted: @chapter.order - 1), class: "button" %>
+<%= link_to "Dashboard", dashboard_path, class: "button" %>
+<%= link_to "Back to course", course_path(@chapter.course_id), class: "button" %>
+
+<% if @chapter.order == @subscription.chapter_completed %>
+<%= link_to 'Next chapter', edit_chapter_test_path(@chapter), class: "button" %>
+  <% else %>
+<%= link_to 'Next chapter', course_chapter_path(@chapter.course, @chapter, wanted: @chapter.order + 1), class: "button" %>
+<% end %>
+
+
+</div>
