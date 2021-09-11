@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'open-uri'
+
 Test.destroy_all
 Subscription.destroy_all
 User.destroy_all
@@ -38,9 +40,16 @@ puts "alan@blockmemo.com"
 
 #course number 1
 
-course = Course.create(name: 'Blockchain fundamentals')
+course = Course.new(name: 'Blockchain fundamentals')
 
-Chapter.create(name: 'Chapter I : What is Blockchain ? ', level:1, 
+file = URI.open("https://images.pexels.com/photos/8370332/pexels-photo-8370332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940.jpg")
+
+course.picture.attach(io: file, filename:"blockchainfund_logo.jpg", content_type:'image/jpg')
+
+course.save
+
+Chapter.create(name: 'Chapter I : What is Blockchain ? ', level:1,
+
 
 content: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order.
 Let’s envision a bank transaction in which there are three parties: the sender, the bank, and the recipient. In order to ensure that there are no fraudulent transactions, the bank acts as the central authority between the parties.
@@ -651,9 +660,15 @@ summary:"Summary", order: 7, course: course)
 i = 1
 10.times do 
 
-course = Course.create(name: "Dummy course # #{i}")
+course = Course.new(name: "Dummy course # #{i}")
+
+file = URI.open("https://images.pexels.com/photos/3097292/pexels-photo-3097292.jpeg")
+
+course.picture.attach(io: file, filename:"la.jpeg", content_type:'image/jpeg')
+course.save
 
 Chapter.create(name: 'Why Blockchain?', level:1, content: 'In 2010, a programmer paid 10,000 Bitcoins for 2 pizzas, roughly worth $30. In 2018, that same number of bitcoins is estimated at $83 million in value!
+
 
 The exchange of Bitcoin is possible due to an underlying technology that secures and simplifies transactions removing the need for a bank or a central authority. Anyone with an internet connection has the freedom to own and exchange this digital currency. The powerful architecture that drove this revolution was blockchain. Businesses started to realize the potential of blockchain and are rapidly mobilizing to understand and implement it. But, what exactly is blockchain and what makes it so transformative?
 
