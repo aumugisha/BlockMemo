@@ -1,25 +1,32 @@
 <div class="container text-center">
-    <h1>Here is the list of all courses available</h1>
+  <div class="ala,"
+    <h1>Here's the list of all courses available</h1>
+    </div>
 </div>
+
+  
   <%= form_tag courses_path, method: :get do %>
     <%= text_field_tag :query,
      params[:query],
       class: "form-control",
       placeholder: "Find a course"
     %>
-   <%= submit_tag "Search", class: "btn btn-primary" %>
+   <%= submit_tag "Search", class: "btn btn-primary btn-lg float-end" %>
   <% end %>
   <% if params[:query].present? %>
     <%= link_to "All courses", courses_path, class:"btn btn-primary" %>
   <% end %>
-
-<%= link_to 'Dashboard', dashboard_path, class: "btn btn-primary" %>
+  
 
 <div class="row">
   <% @courses.each do |course|  %>
       <div class="column">
         <div class="card">
-          <%= image_tag "Ramiro.jpg" %>
+          <% if course.picture.attached? %>
+            <%= cl_image_tag course.picture.key %>
+          <% else %>
+            <%= image_tag "Ramiro.jpg" %>
+          <% end %>
           <div class="container_about">
             <h2><%= course.name %></h2>
             <div class="align-self-end">
@@ -30,4 +37,5 @@
         </div>
     </div>
   <% end %>
+  
 </div>
