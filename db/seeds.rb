@@ -79,12 +79,12 @@ By having the majority of participants validate a new transaction, the blockchai
 
 summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course)
 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 Chapter.create(name: 'Chapter II : What are Blocks in a Blockchain ?', level:1, 
 
@@ -125,12 +125,12 @@ Genesis Block: The genesis block is the first block on the blockchain and it is 
 ',
 
 summary: 'The Block is the brick of the Blockchain. It contains data, different types of data depending on what the Blockchain is used for...', order: 2, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 Chapter.create(name: 'Chapter III : Diving Deeper into Blockchain', level:1, 
 
@@ -204,12 +204,12 @@ Proof-of-Work - A security feature in blockchain to prevent attackers from easil
 ',
 
 summary: 'Unvalidated transactions → As transactions are being carried out, they need to be validated. The Unvalidated transactions are placed in a special location called Mempool, that collects all of the unvalidated transactions..',order: 3, course: course) 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
  
 Chapter.create(name: 'Chapter IV : What is Proof-of-Work (POW) ? ', level:1, 
 
@@ -233,12 +233,12 @@ Every participant uses their computer and a hash function (typically SHA-256) to
 ●	Nonce: A number to be guessed by miners which when combined with the block produces an acceptable hash.<br>
 ', 
 summary:'Proof-of-Work is another layer of security added to the validation of the blocks in the blockchain....', order: 4, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 Chapter.create(name: 'Chapter V :	Diving Deeper into Proof-of-Work ', level:1, 
 
@@ -264,12 +264,12 @@ Let’s review the key terms:<br><br>
 ●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br><br>
 ",
 summary: 'The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain...', order: 5, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 Chapter.create(name: 'Chapter VI : How BlockChain can be useful ? ', level:1, 
 
 content: "<strong>Scenario</strong>
@@ -286,12 +286,12 @@ The solution to all of these pain points lies in the Blockchain technology. You 
 various crypto currencies like Bitcoin ,Ether, Ripple etc and all of these crypto currencies are powered by Blockchain.
 ",
 summary: 'Two examples if scenarios with the use of BlockChain', order: 6, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 #parent seed file
 
@@ -336,12 +336,12 @@ You place your trust in the network instead of a single bank or intermediary lik
 ' ,
 summary: "Blockchain is a tamper-proof distributed digital ledger (register).." , order: 1, course: course)
 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 Chapter.create(name: "Chapter II : Features of Blockchain" , level:2, 
 
@@ -409,12 +409,12 @@ summary:'
 3.	Immutability
 4.	Consensus' , order: 2, course: course)
 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 
 Chapter.create(name: 'Chapter III : Components of a Block - Part 1 ', level:2, 
@@ -446,12 +446,12 @@ the old hash becomes invalid and a new hash is generated for the block. This aff
 This unique property of the blockchain makes it transparent and secure, as in any case of data tampering whole network gets to know which block got compromised in the blockchain.
 " , 
 summary:"Summary", order: 3, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 
 Chapter.create(name: 'Chapter IV : Components of a Block - Part 2', level:2, 
@@ -511,12 +511,12 @@ Characteristics of Proof-of-Stake (PoS)
 ", 
 summary:"Summary", order: 4, course: course)
 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 
 Chapter.create(name: 'Chapter V : Components of a Block - Part 3', level:2, 
@@ -622,12 +622,12 @@ Ex. of Smart Contracts in the Pharma Supply Chain
 Keep track of the temperature of the vaccines or drugs during their transportation by linking smart Contracts to IoT devices which keep track of the temperature of the vaccines/drugs/products.
 ", 
 summary:"Summary", order: 6, course: course)
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 
 
 Chapter.create(name: 'Chapter VII : What are the Criteria for Choosing Blockchain for a Business?', level:2, 
@@ -654,12 +654,12 @@ b.	Centralized DB leads to single point of failure and easy to hack ⇒ Blockcha
 ", 
 summary:"Summary", order: 7, course: course)
 
-# 3.times do |i|
-#   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
-#   puts i
-#   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
-#   file.close
-# end
+3.times do |i|
+  file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
+  puts i
+  Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
+  file.close
+end
 #Course number 3 - Let's add on the website that the course will be available soon at the moment
 
 # course = Course.create(name: 'Blockchain and its Properties')
