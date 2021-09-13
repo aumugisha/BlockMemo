@@ -662,7 +662,7 @@ end
 
 #course 3
 
-course = Course.create(name: "Ethereum 101 #{i}")
+course1 = Course.create(name: "Ethereum 101 #{i}")
 
 
 Chapter.create(name: 'What is Ethereum?', level:1, content: '
@@ -710,7 +710,7 @@ There is a second type of token that is used to pay miners fees for including tr
 
 ',
 
-summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course)
+summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course1)
 
 Chapter.create(
 name: 'What is a Ethereum smart contract?',
@@ -742,8 +742,7 @@ Ethereum has recently created a new standard called the ERC721 token for trackin
 Many games are currently being built using this technology, such as the overnight hit CryptoKitties, a game where you can collect and breed digital cats.
   
   ',
-  order: 1, course: course1
-)
+  order: 2, course: course1)
 
 Chapter.create(
 name: 'What are the benefits of a decentralized ethereum Platform?',
@@ -817,16 +816,11 @@ Consortia blockchains: In two years, many companies will have started to build b
 Business use of public blockchains: Some companies will employ public ethereum with their use cases that employ the same stack of blockchain components that they have purchased or built for their private Ethereum-based implementations.
 
   ',
-  order: 1, course: course1
-)
+  order: 3, course: course1)
 
 
 puts "Ethereum 101 # #{i}"
 
-
-i += 1 
-
-end
 
 # Chapters_Tests
 
@@ -888,10 +882,7 @@ The market is dominated by few number of companies like Samsung, Apple, and Huaw
 So, when they can’t compete by changing prices, how can they get that edge over their competitors? They do so by “non-price competition”, which means competing without changing the price. How do they do that? They do so by changing the look and style of their products and giving a unique experience. However, the most recognizable form of non-price competition is advertising.
   
   ',
-
-
-summary: 'If you want to start investing cryptocurrencies this is a great place to start, we dive deeper into tokens and their economies', order: 1, course: course1
-)
+summary: 'If you want to start investing cryptocurrencies this is a great place to start, we dive deeper into tokens and their economies', order: 1, course: course4)
 
 Chapter.create(
 name: 'What is the Game theory?',
@@ -1012,8 +1003,7 @@ The concept of Bounded Rationality
 Imagine this scenario, Sarah goes to the grocer’s shop every single day and buys an apple. She does this every single day as a ritual. However, every day she faces a situation. Every day, whenever she is in the shop, the shopkeeper leaves for 5 mins and there are no security cameras in place. She can easily shoplift an apple and nobody will get to know about it. Yet she never does that.
 What Sarah does here is called “Bounded Rationality”. Bounded rationality basically means that when given a choice, people will always follow a path that is simple and something they are used to. This path may not be what is best suited for them and it may not give them the highest pay offs, yet they will always follow the simplest path. The reason why Sarah chose the virtuous path of following her simple routine everyday instead of shoplifting and getting away with no repercussions is that the second scenario is a little more complex than her simple everyday routine.
 Now that we have gone through some game theory models, let’s see its implication in cryptocurrency and how it helps keep the system floating.
-  ', order: 2, course: course1
-)
+  ', order: 2, course: course4)
 
 Chapter.create(
 name: 'Blockchain and Cryptocurrency Game Theory',
@@ -1121,9 +1111,8 @@ The argument doesn’t hold up if the currency can be mined using CPUs. CPUs are
 
 However, if the miners who own the CPUs have a stake in the currency, the argument holds up because they don’t want to lose the stake that they have invested in the currency. This is a sort of proof-of-stake.
 ',
-order: 1, 
-course: course1
-)
+order: 3, 
+course: course4)
 
 #course 5
 
@@ -1196,12 +1185,12 @@ That’s why you should only ever risk as much money as you can afford. Like Wen
 “I always tell them [my family] that the second most stupid thing they could do right now is to own a number of bitcoins they cannot afford to lose and the most stupid thing they could do would be to not own any.”
 
 Before investing in cryptocurrencies, it’s absolutely imperative that you educate yourself so you can be equipped to make the right decision at the right time. Or as they say: DYOR – do your own research!
-'
-summary: 'Cryptocurrencies are seeing a massive surge in popularity. While they used to attract a very niche audience just a few years ago, today, everyone and their grandmother wants to learn how to invest.' , order: 1, course: course1
+',
+summary: 'Cryptocurrencies are seeing a massive surge in popularity. While they used to attract a very niche audience just a few years ago, today, everyone and their grandmother wants to learn how to invest.' , order: 1, course: course5)
 
 
 Chapter.create(
-name: 'What Cryptocurrency Should You Invest In?'
+name: 'What Cryptocurrency Should You Invest In?',
 level:1,
 content: '
 Always educate yourself, understand the risks, the all possible outcomes, and don’t make any investments if you are not 100% comfortable with your decision.
@@ -1299,8 +1288,7 @@ An active GitHub repository is a good indicator that serious development has bee
 Here’s a good example of an active GitHub repository — with 1,014 commits, their developers are definitely giving their all to the project.
 
 ',
-order: 1, course: course1
-  )
+order: 2, course: course5)
 
 Chapter.create(
 name: 'How to Buy Cryptocurrency On A (CeFi) Centralized Exchang',
@@ -1322,7 +1310,7 @@ content: '
   If you’re wondering why you have to go through the lengthy and arduous process of signups and verifications to purchase crypto, the answer lies in the various Know Your Customer (KYC) and Anti-Money Laundering (AML) laws that centralized exchanges are legally obligated to comply.
   Some exchanges avoid this process by simply not allowing you to deposit your fiat dollars into the exchange, and limit transactions to be between crypto-to-crypto, as opposed to the fiat-to-crypto that requires AML laws to be observed by the exchange.
 ',
-order: 1, course: course1
+order: 3, course: course5)
 
 Chapter.create(
   name: 'How to Buy Cryptocurrency On A (DeFi) Decentralized Exchange',
@@ -1349,6 +1337,6 @@ Chapter.create(
   
 
   ',
-  order: 1, course: course1
+  order: 4, course: course5)
 
 
