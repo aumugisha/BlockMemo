@@ -79,6 +79,10 @@ By having the majority of participants validate a new transaction, the blockchai
 
 summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course)
 
+Test.create(question: "What is BlockChain ?", answers: ["The blockchain is a modern back-end programming language", "The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs", "The blockchain is a protocole used to secure transactions on internet"], 
+correct_answer: "The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs", chapter: Chapter.last)
+
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -125,6 +129,10 @@ Genesis Block: The genesis block is the first block on the blockchain and it is 
 ',
 
 summary: 'The Block is the brick of the Blockchain. It contains data, different types of data depending on what the Blockchain is used for...', order: 2, course: course)
+
+Test.create(question: "Which of the following blocks is the most secure ?", answers: ["The Genesis Block", "The Block with the most number of transactions", "The latest Block", "The Block with the least number of transactions"], 
+correct_answer: "The Genesis Block", chapter: Chapter.last)
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -204,6 +212,10 @@ Proof-of-Work - A security feature in blockchain to prevent attackers from easil
 ',
 
 summary: 'Unvalidated transactions → As transactions are being carried out, they need to be validated. The Unvalidated transactions are placed in a special location called Mempool, that collects all of the unvalidated transactions..',order: 3, course: course) 
+
+Test.create(question: "What is an immutable record ?", answers: ["A record that has no previous record linked to it", "A record that can not be changed", "A record that can't be accessed"], 
+correct_answer: "A record that can not be changed", chapter: Chapter.last)
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -233,6 +245,10 @@ Every participant uses their computer and a hash function (typically SHA-256) to
 ●	Nonce: A number to be guessed by miners which when combined with the block produces an acceptable hash.<br>
 ', 
 summary:'Proof-of-Work is another layer of security added to the validation of the blocks in the blockchain....', order: 4, course: course)
+
+Test.create(question: "What is Proof-of-Work", answers: [" A never-ending guessing game that is impossible to solve", "A problem that is difficult to solve which slows the process of tampering blocks and also to confirm valid blocks", "The amount of computational work done to find blocks"], 
+correct_answer: "A problem that is difficult to solve which slows the process of tampering blocks and also to confirm valid blocks", chapter: Chapter.last)
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -264,6 +280,10 @@ Let’s review the key terms:<br><br>
 ●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br><br>
 ",
 summary: 'The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain...', order: 5, course: course)
+
+Test.create(question: "How does Proof-of-Work secure the Blockchain ?", answers: ["Proof-of-Work secures the blockchain by trusting the longest chain because it is able to hold many transactions", "Proof-of-Work secures the blockchain by trusting the longest chain that has the most amount of computational work done in solving each block's Proof-of-Work", "Proof-of-Work secures the blockchain by making it impossible to tamper with previous blocks"], 
+correct_answer: "Proof-of-Work secures the blockchain by trusting the longest chain that has the most amount of computational work done in solving each block's Proof-of-Work", chapter: Chapter.last)
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -286,6 +306,11 @@ The solution to all of these pain points lies in the Blockchain technology. You 
 various crypto currencies like Bitcoin ,Ether, Ripple etc and all of these crypto currencies are powered by Blockchain.
 ",
 summary: 'Two examples if scenarios with the use of BlockChain', order: 6, course: course)
+
+
+Test.create(question: "What makes it possible for blockchain to automatticaly and correctly verify transactions ?", answers: ["Cryptography and Hashing", "Anonymous participants","Complete trust among the participants"], 
+correct_answer: "Cryptography and Hashing", chapter: Chapter.last)
+
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -823,14 +848,6 @@ puts "Ethereum 101 # #{i}"
 
 
 # Chapters_Tests
-
-Course.all.each do |course|
-course.chapters.each do |chapter|
-  puts "#{chapter.name}"
-  Test.create(question: " What is the meaning of life", answers: ["A", "42", "C"], correct_answer: "42", chapter: chapter)
-  puts "#{Test.last.chapter.name}"
-end
-end
 
 puts  "Seed Done"
 
