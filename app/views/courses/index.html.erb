@@ -4,7 +4,6 @@
     </div>
 </div>
 
-  
   <%= form_tag courses_path, method: :get do %>
     <%= text_field_tag :query,
      params[:query],
@@ -30,8 +29,8 @@
           <div class="container_about">
             <h2><%= course.name %></h2>
             <div class="align-self-end">
-            <p class="title"><%= link_to "Details", course_path(course), class: "btn btn-primary" %></p>
-            <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "btn btn-alert" %></p>
+            <p class="title"><%= link_to "Details", course_path(course), class: "button", style: "margin-left: 10px; margin-right: 10px" %></p>
+            <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "button", style: "margin-left: 10px; margin-right: 10px" %></p>
             </div>
           </div>
         </div>
