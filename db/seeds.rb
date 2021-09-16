@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
 require 'faker'
 require 'open-uri'
 
@@ -687,7 +689,15 @@ end
 
 #course 3
 
-course1 = Course.create(name: "Ethereum 101 #{i}")
+course1 = Course.new(name: "Ethereum 101 #{i}")
+
+
+
+file = URI.open("https://images.pexels.com/photos/8370332/pexels-photo-8370332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940.jpg")
+
+course.picture.attach(io: file, filename:"blockchainfund_logo.jpg", content_type:'image/jpg')
+
+course.save
 
 
 Chapter.create(name: 'What is Ethereum?', level:1, content: '
