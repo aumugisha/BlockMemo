@@ -46,7 +46,7 @@ file = URI.open("https://images.pexels.com/photos/8370332/pexels-photo-8370332.j
 
 course.picture.attach(io: file, filename:"blockchainfund_logo.jpg", content_type:'image/jpg')
 
-course.save
+course.save!
 
 Chapter.create(name: 'Chapter I : What is Blockchain ? ', level:1,
 
@@ -306,7 +306,7 @@ file = URI.open("https://images.pexels.com/photos/1099339/pexels-photo-1099339.j
 
 course.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
 
-course.save
+course.save!
 
 
 Chapter.create(name: 'Chapter I : What is Blockchain?', level:2, 
@@ -662,90 +662,104 @@ end
 
 #course 3
 
-course1 = Course.create(name: "Ethereum 101 #{i}")
+course1 = Course.create!(name: "Ethereum 101")
 
 
-Chapter.create(name: 'What is Ethereum?', level:1, content: '
+Chapter.create(name: 'Chapter I: What is Ethereum?', level:1, content: '
 
-
+<body>
+<h2>Is Ethereum better than Bitcoin?</h2>
+<br>
+<h3>
 Ethereum is a global, decentralized platform for money and new kinds of applications. On Ethereum, you can write code that controls the money, and build applications accessible anywhere in the world.
+<br></h3>
 
-
-Is Ethereum better than Bitcoin?
-
-Beyond Bitcoin & first-generation decentralized applications.
-Although commonly associated with Bitcoin, blockchain technology has many other applications that go way beyond digital currencies. In fact, Bitcoin is only one of several hundred applications that use blockchain technology today.
+<br><br><p><div>
+Beyond Bitcoin & first-generation decentralized applications. Although commonly associated with Bitcoin, blockchain technology has many other applications that go way beyond digital currencies. In fact, Bitcoin is only one of several hundred applications that use blockchain technology today.
 Until relatively recently, building blockchain applications has required a complex background in coding, cryptography, mathematics as well as significant resources. But times have changed. Previously unimagined applications, from electronic voting & digitally recorded property assets to regulatory compliance & trading are now actively being developed and deployed faster than ever before. 
 By providing developers with the tools to build decentralized applications, ethereum is making all of this possible.
-
-Key Highlights:
-
-November 2013: Vitalik Buterin publishes the ethereum whitepaper.
-
-January 2014: The development of the Ethereum platform was publicly announced. The original Ethereum development team consisted of Vitalik Buterin, Mihai Alisie, Anthony Di Iorio, and Charles Hoskinson.
-
-August 2014: Ethereum ends their ICO and raises $18.4 million.
-
-May 2015: “Olympic” the ethereum testnet releases.
-
-July 30, 2015: The first stage of Ethereum’s development, “Frontier” was released.
-
-March 14, 2016: Homestead, the first “stable” ethereum release, went out on block 1,150,000.
-
-June 2016: The DAO hack happens and the $50 million worth of Ether, which was 15% of the total Ether in circulation back at the time.
-
-October 25, 2016: Ethereum Classic forks away from the original Ethereum protocol.
-
-October 16, 2017: The Metropolis Byzantium hardfork update happens.
-
-February 28, 2019: The Metropolis Constantinople hardfork update happens.
-
-At its simplest, ethereum is an open software platform based on blockchain technology that enables developers to build and deploy decentralized applications.
-
-Is ethereum similar to Bitcoin? Well, sort of, but not really.
-
-Like Bitcoin, ethereum is a distributed public blockchain network. Although there are some significant technical differences between the two, the most important distinction to note is that Bitcoin and Ethereum differ substantially in purpose and capability. Bitcoin offers one particular application of blockchain technology, a peer to peer electronic cash system that enables online Bitcoin payments. While Bitcoin is used to track ownership of digital currency (bitcoins),  ethereum focuses on running the programming code of any decentralized application.
+<br><br></p></div>
+<div>
+<strong>Key Highlights:</strong>
+<ul style="float:left;">
+<br>
+<li>November 2013: Vitalik Buterin publishes the ethereum whitepaper.</li>
+<br>
+<br>
+<li>January 2014: The development of the Ethereum platform was publicly announced. The original Ethereum development team consisted of Vitalik Buterin, Mihai Alisie, Anthony Di Iorio, and Charles Hoskinson.</li>
+<br>
+<li>August 2014: Ethereum ends their ICO and raises $18.4 million.</li>
+<br>
+<li>May 2015: “Olympic” the ethereum testnet releases.</li>
+<br>
+<li>July 30, 2015: The first stage of Ethereum’s development, “Frontier” was released.</li>
+<br>
+<li>March 14, 2016: Homestead, the first “stable” ethereum release, went out on block 1,150,000.</li>
+<br>
+<li>June 2016: The DAO hack happens and the $50 million worth of Ether, which was 15% of the total Ether in circulation back at the time.</li>
+<br>
+<li>October 25, 2016: Ethereum Classic forks away from the original Ethereum protocol.</li>
+<br>
+<li>October 16, 2017: The Metropolis Byzantium hardfork update happens.</li>
+<br>
+<li>February 28, 2019: The Metropolis Constantinople hardfork update happens.</li>
+<br>
+</div>
+</ul>
+<br>
+At its simplest, ethereum is an open software platform based on blockchain technology that enables developers to build and deploy decentralized applications. <strong>Is ethereum similar to Bitcoin? Well, sort of, but not really</strong>.
+<br>
+<br>
+<p>Like Bitcoin, ethereum is a distributed public blockchain network. Although there are some significant technical differences between the two, the most important distinction to note is that Bitcoin and Ethereum differ substantially in purpose and capability. Bitcoin offers one particular application of blockchain technology, a peer to peer electronic cash system that enables online Bitcoin payments. While Bitcoin is used to track ownership of digital currency (bitcoins),  ethereum focuses on running the programming code of any decentralized application.
 In the Ethereum, instead of mining for bitcoin, miners work to earn Ether, a type of crypto token that fuels the network. Beyond a tradeable cryptocurrency, Ether is also used by application developers to pay for transaction fees and services on the ethereum network. 
-There is a second type of token that is used to pay miners fees for including transactions in their block, it is called gas, and every smart contract execution requires a certain amount of gas to be sent along with it to entice miners to put it in the blockchain.
-
+There is a second type of token that is used to pay miners fees for including transactions in their block, it is called gas, and every smart contract execution requires a certain amount of gas to be sent along with it to entice miners to put it in the blockchain.</p>
+<br></body>
 ',
 
 summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course1)
 
 Chapter.create(
-name: 'What is a Ethereum smart contract?',
+name: 'Chapter II: What is a Ethereum smart contract?',
 level:1,
 content: '
+<br>
 Smart contract is just a phrase used to describe a computer code that can facilitate the exchange of money, content, property, shares, or anything of value. When running on the blockchain a smart contract becomes like a self-operating computer program that automatically executes when specific conditions are met. Because smart contracts run on the blockchain, they run exactly as programmed without any possibility of censorship, downtime, fraud or third-party interference.
 While all blockchains have the ability to process code, most are severely limited. ethereum is different. Rather than giving a set of limited operations, ethereum allows developers to create whatever operations they want. This means developers can build thousands of different applications that go way beyond anything we have seen before.
-
+<br>
+<br> <strong>
 Ethereum Virtual Machine
-
+<br> </strong>
+<br>
 Before the creation of ethereum applications were designed to do a very limited set of operations. Bitcoin and other cryptocurrencies, for example, were developed exclusively to operate as peer-to-peer digital currencies.
 Developers faced a problem. Either expand the set of functions offered by Bitcoin and other types of applications, which is very complicated and time-consuming, or develop a new blockchain application and an entirely new platform as well. Recognizing this predicament, Ethereum’s creator, Vitalik Buterin developed a new approach.
-
+<br>
+<br>
 “I thought [those in the Bitcoin community] weren’t approaching the problem in the right way. I thought they were going after individual applications; they were trying to kind of explicitly support each [use case] in a sort of Swiss Army knife protocol.”  – Vitalik Buterin, inventor of ethereum
 Ethereum’s core innovation, the Ethereum Virtual Machine (EVM) is a Turing complete software that runs on the ethereum network. It enables anyone to run any program, regardless of the programming language given enough time and memory. The ethereum Virtual Machine makes the process of creating blockchain applications much easier and efficient than ever before. Instead of having to build an entirely original blockchain for each new application, ethereum enables the development of potentially thousands of different applications all on one platform.
+<br>
 
-What can Ethereum be used for?
+<br><strong>What can Ethereum be used for?</strong><br>
+<br>
 Ethereum enables developers to build and deploy decentralized applications. A decentralized application or Dapp serve some particular purpose to its users. Bitcoin, for example, is a Dapp that provides its users with a peer to peer electronic cash system that enables online Bitcoin payments. Because decentralized applications are made up of code that runs on a blockchain network, they are not controlled by any individual or central entity.
 Any services that are centralized can be decentralized using ethereum. Think about all the intermediary services that exist across hundreds of different industries
 From obvious services like loans provided by banks to intermediary services rarely thought about by most people like title registries, voting systems, regulatory compliance and much more.
 Ethereum can also be used to build Decentralized Autonomous Organizations (DAO). A DAO is a fully autonomous, decentralized organization with no single leader. DAO’s are run by programming code, on a collection of smart contracts written on ethereum. The code is designed to replace the rules and structure of a traditional organization, eliminating the need for people and centralized control.
 A DAO is owned by everyone who purchases tokens, but instead of each token equating to equity shares & ownership, tokens act as contributions that give people voting rights.
-
+<br>
+<br>
 “A DAO consists of one or more contracts and could be funded by a group of like-minded individuals. A DAO operates completely transparently and completely independently of any human intervention, including its original creators. A DAO will stay on the network as long as it covers its survival costs and provides a useful service to its customer base”. Stephen Tual, Slock.it Founder, former CCO ethereum.
 Ethereum is also being used as a platform to launch other cryptocurrencies. Because of the ERC20 token standard defined by the Ethereum Foundation, other developers can issue their own versions of this token and raise funds with an initial coin offering (ICO). 
 In this fundraising strategy, the issuers of the token set an amount they want to raise, offer it in a crowd sale, and receive Ether in exchange. Billions of dollars have been raised by ICOs on the ethereum platform in the last two years, and one of the most valuable cryptocurrencies in the world, EOS, is an ERC20 token.
-
+<br>
+<br>
 Ethereum has recently created a new standard called the ERC721 token for tracking unique digital assets. One of the biggest use cases currently for such tokens is digital collectibles, as the infrastructure allows for people to prove ownership of scarce digital goods.
 Many games are currently being built using this technology, such as the overnight hit CryptoKitties, a game where you can collect and breed digital cats.
-  
+<br>
   ',
   order: 2, course: course1)
 
 Chapter.create(
-name: 'What are the benefits of a decentralized ethereum Platform?',
+name: 'Chapter III : What are the benefits of a decentralized ethereum Platform?',
 level:1,
 content: '
 Because decentralized applications run on the blockchain, they benefit from all of its properties.
@@ -819,7 +833,7 @@ Business use of public blockchains: Some companies will employ public ethereum w
   order: 3, course: course1)
 
 
-puts "Ethereum 101 # #{i}"
+puts "Ethereum 101"
 
 
 # Chapters_Tests
@@ -837,7 +851,7 @@ puts  "Seed Done"
 
 #Course 4
 
-course4= Course.create(name: 'Cryptocurrency for Investors')
+course4= Course.create!(name: 'Cryptocurrency for Investors')
 
 
 Chapter.create(
@@ -1116,7 +1130,7 @@ course: course4)
 
 #course 5
 
-course5 = Course.create(name: 'How To Invest in Cryptocurrencies: The Ultimate Beginners Guide')
+course5 = Course.create!(name: 'How To Invest in Cryptocurrencies: The Ultimate Beginners Guide')
 
 Chapter.create(
 name: 'How to invest in Cryptocurrency',
@@ -1291,7 +1305,7 @@ Here’s a good example of an active GitHub repository — with 1,014 commits, t
 order: 2, course: course5)
 
 Chapter.create(
-name: 'How to Buy Cryptocurrency On A (CeFi) Centralized Exchang',
+name: 'How to Buy Cryptocurrency On A (CeFi) Centralized Exchange',
 level:1,
 content: '
   1. Find a centralized exchange that accepts your local fiat currency (ie. US: Coinbase, Kraken, CA: Newton, Bitbuy)
