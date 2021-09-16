@@ -299,9 +299,6 @@ end
 
 course = Course.new(name: 'Blockchain and its Properties')
 
-
-
-
 file = URI.open("https://images.pexels.com/photos/1099339/pexels-photo-1099339.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260.jpg")
 
 course.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
@@ -664,26 +661,29 @@ end
 
 course1 = Course.create!(name: "Ethereum 101")
 
+file = URI.open("https://ethereum.org/static/28214bb68eb5445dcb063a72535bc90c/3bf79/hero.png")
+course.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
 
 Chapter.create(name: 'Chapter I: What is Ethereum?', level:1, content: '
 
 <body>
-<h2>Is Ethereum better than Bitcoin?</h2>
+<strong>Is Ethereum better than Bitcoin?</strong>
 <br>
-<h3>
+<strong>
 Ethereum is a global, decentralized platform for money and new kinds of applications. On Ethereum, you can write code that controls the money, and build applications accessible anywhere in the world.
-<br></h3>
+<br></strong>
 
-<br><br><p><div>
+<br><p><div>
 Beyond Bitcoin & first-generation decentralized applications. Although commonly associated with Bitcoin, blockchain technology has many other applications that go way beyond digital currencies. In fact, Bitcoin is only one of several hundred applications that use blockchain technology today.
 Until relatively recently, building blockchain applications has required a complex background in coding, cryptography, mathematics as well as significant resources. But times have changed. Previously unimagined applications, from electronic voting & digitally recorded property assets to regulatory compliance & trading are now actively being developed and deployed faster than ever before. 
 By providing developers with the tools to build decentralized applications, ethereum is making all of this possible.
-<br><br></p></div>
+<br></p></div>
+
 <div>
 <strong>Key Highlights:</strong>
 <ul style="float:left;">
 <br>
-<li>November 2013: Vitalik Buterin publishes the ethereum whitepaper.</li>
+<li> November 2013: Vitalik Buterin publishes the ethereum whitepaper.</li>
 <br>
 <br>
 <li>January 2014: The development of the Ethereum platform was publicly announced. The original Ethereum development team consisted of Vitalik Buterin, Mihai Alisie, Anthony Di Iorio, and Charles Hoskinson.</li>
@@ -713,7 +713,7 @@ At its simplest, ethereum is an open software platform based on blockchain techn
 <p>Like Bitcoin, ethereum is a distributed public blockchain network. Although there are some significant technical differences between the two, the most important distinction to note is that Bitcoin and Ethereum differ substantially in purpose and capability. Bitcoin offers one particular application of blockchain technology, a peer to peer electronic cash system that enables online Bitcoin payments. While Bitcoin is used to track ownership of digital currency (bitcoins),  ethereum focuses on running the programming code of any decentralized application.
 In the Ethereum, instead of mining for bitcoin, miners work to earn Ether, a type of crypto token that fuels the network. Beyond a tradeable cryptocurrency, Ether is also used by application developers to pay for transaction fees and services on the ethereum network. 
 There is a second type of token that is used to pay miners fees for including transactions in their block, it is called gas, and every smart contract execution requires a certain amount of gas to be sent along with it to entice miners to put it in the blockchain.</p>
-<br></body>
+</body>
 ',
 
 summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course1)
@@ -761,6 +761,8 @@ Many games are currently being built using this technology, such as the overnigh
 Chapter.create(
 name: 'Chapter III : What are the benefits of a decentralized ethereum Platform?',
 level:1,
+summary: 'Despite bringing a number of benefits, decentralized applications aren’t faultless. Because smart contract code is written by humans, smart contracts are only as good as the people who write them.
+Code bugs or oversights can lead to unintended adverse actions being taken. If a mistake in the code gets exploited, there is no efficient way in which an attack or exploitation can be stopped other than obtaining a network consensus and rewriting the underlying code.',
 content: '
 Because decentralized applications run on the blockchain, they benefit from all of its properties.
 
