@@ -1,22 +1,23 @@
-<h1>Test page</h1>
-<br>
-<h2> <%= @test.question %></h2>
 
+
+<div class="container-fluid border border-primary " style=" padding:50px; width:75%; margin:50px auto; border-radius:10px">
+<h1 class="text-center">Test page - <%= @test.chapter.name %></h1>
+<br>
+<h2 style="margin-bottom; font-weight: bold"> <%= @test.question %></h2>
 <br>
 <ol>
-<% @test.answers.each do |answer| %>
-<li>
-<%= answer %>
-</li>
+<% @test.answers.each do |answer|%>
+<h4><li> <%= answer %> </li></h4>
 <% end  %>
 </ol>
-<h3> <%= @test.passed %></h3>
+
+</div>
 
 
-<div class="container form">
+<div class="container form text-center">
 <%= simple_form_for [@test.chapter, @test] do |f| %>
-  <%= f.select :choice, [@test.answers[0], @test.answers[1], @test.answers[2]] %>   
-  <%= f.submit %>
+  <%= f.select :choice, [@test.answers[0], @test.answers[1], @test.answers[2]] , style: 'float: left; height: 50px !important; display: block'%>   
+  <%= f.submit "Submit answer", class: "button" %>
 <% end %>
 
 </div>
