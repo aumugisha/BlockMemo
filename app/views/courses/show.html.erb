@@ -1,18 +1,20 @@
 <!-- <%= link_to "Dashboard", dashboard_path, class: "btn btn-alert" %> -->
 
-<div class="containershow", style="padding: auto">
+<div class="containershow", style="padding: auto; margin-top: 10px; background-color: rgb(225,236,240);">
 
-  <div class="title">
+  <div class="title" style="margin-top: 10px;margin-bottom: 10px;">
     <h1><%= @course.name %></h1>
-    </div>
-    <p><%= @course.topic %> <%= @course.level %> </p>
+  </div>
 
 
-    <br>
+<div style="margin-top: 10px;">
 
-    <br>
 
-    <br>
+<div>
+
+    <p ><%= @course.topic %> <%= @course.level %> </p>
+
+</div>
 
 
     <%# Display course chapters %>
@@ -40,41 +42,65 @@
 -->
 
  <div class="row">
- <% @course.chapters.each do |chapter| %>
-  
+  <% @course.chapters.each do |chapter| %>
+
     <div class="col-sm-6">
-      <%= image_tag "Logo-small.png" %>
-      <div class="card-body">
-        <h5 class="card-title"><%= chapter.order %> - <%= chapter.name %></h5>
-        <p class="card-text">
-          <%= chapter.summary %>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Level : <%= chapter.level %></li>
-          </ul>
-        </p>
+      <%= image_tag "Logo-small.png"%>
+      <div class=" text-center">
+
+        <div class="card-body" >
+
+          <div style="max-height:100px; min-width: 400">
+          
+            <h5 class="card-title"><%= chapter.order %> - <%= chapter.name %></h5>
+            <p class="card-text">
+              <%= chapter.summary %>
+          
+          </div>
+
+      
+        </div>
+        
+            
+        <div  style="height: 150px; width: 473px; margin-top: 95px;">
+        
+            <div>
+            
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Level : <%= chapter.level %></li>
+                </ul>
+              </p>
+            
+            </div>
+
         <% if @subscription.nil? %>
-          <%= link_to 'Subscribe to access', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button", style: "margin-left: 10px; margin-right: 10px" %>
-        <% else %>
-          <% if @subscription.chapter_completed + 1 >= chapter.order  %>
-            <%= link_to "Details", course_chapter_path(chapter.course, chapter, wanted: chapter.order), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
+          <%= link_to 'Subscribe to access', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button justify-content-end", style: "border: 10px; margin-left: 10px; margin-right: 10px" %>
           <% else %>
-            <%= link_to "Complete previous chapters to access", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "button btn-lg btn-block", style: "margin-left: 1px; margin-right: 1px; margin-bottom: auto;" %>
-          <% end %>
+            <% if @subscription.chapter_completed + 1 >= chapter.order  %>
+              <%= link_to "Details", course_chapter_path(chapter.course, chapter, wanted: chapter.order), class: "button justify-content-end", style: "border: 10px; margin-left: 10px; margin-right: 10px";  %>
+            <% else %>
+              <%= link_to "Complete previous chapters to access", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "button btn-lg btn-block justify-content-end", style: " border-bottom: 10px margin-left: 1px; margin-right: 1px;" %>
+           <% end %>
         <% end %>
+        
+        
+        </div>
       </div>
     </div>
  
-<% end %>
+  <% end %>
+
+</div>
 
 </div>
    
   
 
- <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button-hover" %>
+ <%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: @course}), method: :post , class: "button-hover", style: "margin-bottom: 10px;" %>
  
     <%# <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
-    <%= link_to 'Leave a review', new_course_review_path(course_id: @course), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
-    <%= link_to "All chapters", course_chapters_path(@course), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
+    <%= link_to 'Leave a review', new_course_review_path(course_id: @course), class: "button", style: "margin-bottom: 10px; margin-left: 10px; margin-right: 10px" %>
+    <%= link_to "All chapters", course_chapters_path(@course), class: "button", style: "margin-bottom: 10px; margin-left: 10px; margin-right: 10px" %>
   <%# </div> %>
 
  <ul class="list-group">
