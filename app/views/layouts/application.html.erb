@@ -7,14 +7,24 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="/assets/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
+  <div class="d-flex justify-content-between flex-column">
+  <div>
     <%= render 'shared/navbar' unless @disable_header %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' unless @disable_footer %>
+    <%= render 'shared/flashes' %> 
+  </div>
+
+<div><%= yield %></div>
+
+<div><%= render 'shared/footer' unless @disable_footer %></div>
+
+  </div>
+
+    
+    
   </body>
 </html>

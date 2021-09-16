@@ -80,15 +80,32 @@
 </div>
 
 
-<div class="container-fluid text-center border border-primary"  style="background-color: white; border-radius: 5px; padding-top: 20px; margin-top:20px;margin-bottom:20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); width:85%">
+<div class="container text-center border border-primary"  style="background-color: white; border-radius: 5px; padding-top: 20px; margin-top:20px;margin-bottom:20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); width:85%">
 
 <%= link_to "Browse all courses", courses_path, class: "button" %>
-  <div class="pic-ctn">
-    <img src="https://picsum.photos/200/300?cryptocurrency" alt="" class="pic">
-    <img src="https://picsum.photos/200/300?cryptocurrency"" alt="" class="pic">
-    <img src="https://picsum.photos/200/300?cryptocurrency"" alt="" class="pic">
-    <img src="https://picsum.photos/200/300?cryptocurrency"" alt="" class="pic">
-    <img src="https://picsum.photos/200/300?cryptocurrency"" alt="" class="pic">
-  </div></div>
+
+<div class="row ">
+  <% @courses.each do |course|  %>
+      <div class="column" style="margin:auto;">
+        <div class="card" style="height:600px">
+          <% if course.picture.attached? %>
+            <%= cl_image_tag course.picture.key, style: "height: 200px;" %>
+          <% else %>
+            <%= image_tag "Ramiro.jpg", style: "height: 200px;" %>
+          <% end %>
+          <div class="container_about">
+            <h2 style="margin-top: 5px"><%= course.name %></h2>
+        
+            <p class="title"><%= link_to "Details", course_path(course), class: "button", style: "margin-left: 10px; margin-right: 10px; margin-top: 10px" %></p>
+            <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "button", style: " margin-bottom: 20px; margin-left: 10px; margin-right: 10px" %></p>
+         
+          </div>
+        </div>
+    </div>
+  <% end %>
+  
+</div>
+
+</div>
 
   
