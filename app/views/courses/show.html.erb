@@ -58,7 +58,7 @@
           <% if @subscription.chapter_completed + 1 >= chapter.order  %>
             <%= link_to "Details", course_chapter_path(chapter.course, chapter, wanted: chapter.order), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
           <% else %>
-            <%= link_to "Complete previous chapters to access", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "button btn-lg btn-block", style: "margin-left: 1px; margin-right: 1px; margin-bottom: auto;" %>
+            <%= link_to "Complete previous chapters", course_chapter_path(@subscription.course, @subscription.chapter_completed), class: "button btn-lg btn-block", style: "margin-left: 1px; margin-right: 1px; margin-bottom: auto;" %>
           <% end %>
         <% end %>
       </div>
@@ -74,7 +74,7 @@
  
     <%# <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
     <%= link_to 'Leave a review', new_course_review_path(course_id: @course), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
-    <%= link_to "All chapters", course_chapters_path(@course), class: "button", style: "margin-left: 10px; margin-right: 10px" %>
+    <%= link_to "All courses", courses_path, class: "button", style: "margin-left: 10px; margin-right: 10px" %>
   <%# </div> %>
 
  <ul class="list-group">

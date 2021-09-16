@@ -1,9 +1,9 @@
 
 
-<div class="container-fluid border border-primary" style=" padding:50px; width:75%; margin:auto">
+<div class="container-fluid border border-primary " style=" padding:50px; width:75%; margin:50px auto; border-radius:10px">
 <h1 class="text-center">Test page - <%= @test.chapter.name %></h1>
 <br>
-<h2 style="margin-bottom"> <%= @test.question %></h2>
+<h2 style="margin-bottom; font-weight: bold"> <%= @test.question %></h2>
 <br>
 <ol>
 <% @test.answers.each do |answer|%>
@@ -14,25 +14,10 @@
 </div>
 
 
-<div class="container form">
+<div class="container form text-center">
 <%= simple_form_for [@test.chapter, @test] do |f| %>
-  <%= f.select :choice, [@test.answers[0], @test.answers[1], @test.answers[2]] , style: 'float: left; width: 60%; display: block'%>   
+  <%= f.select :choice, [@test.answers[0], @test.answers[1], @test.answers[2]] , style: 'float: left; height: 50px !important; display: block'%>   
   <%= f.submit "Submit answer", class: "button" %>
 <% end %>
 
 </div>
-
-<fieldset>
-  <legend>Radio Control Quality</legend>
-  <label for="accessible">
-    <input type="radio" value="accessible" name="quality" id="accessible"> <span>accessible</span>
-  </label>
-
-  <label for="pretty">
-    <input type="radio" value="pretty" name="quality" id="pretty"> <span>pretty</span>
-  </label>
-
-  <label for="accessible-and-pretty">
-    <input type="radio" value="pretty"  name="quality" id="accessible-and-pretty" checked> <span>accessible and pretty</span>
-  </label>
-</fieldset>
