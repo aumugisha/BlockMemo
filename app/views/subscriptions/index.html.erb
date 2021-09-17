@@ -21,7 +21,7 @@
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
               Course completed
               <br>
-                <%  subscription.course.chapters.each do |chapter| %>
+                <%  subscription.course.chapters.order(order: :asc).each do |chapter| %>
                   <%  if chapter.order < subscription.chapter_completed  %>
                      <p style="color: black;font-weight: bolder; font-size: 12px; text-align: left;"><%= chapter.name %> &#9989;</p>
                   <% end %>
@@ -36,11 +36,7 @@
           
                 <% end %>
             </div>
-            <% if subscription.course.chapters.last.order <= subscription.chapter_completed %>
-            <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-            <% else %>
             <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-            <% end %>
     </div>
     </li>
     <% end  %>
@@ -65,7 +61,7 @@
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
               <%= subscription.chapter_completed %> / <%= subscription.course.chapters.last.order %></p>
               <br>
-                <%  subscription.course.chapters.each do |chapter| %>
+                <%  subscription.course.chapters.order(order: :asc).each do |chapter| %>
                   <%  if chapter.order < subscription.chapter_completed  %>
                      <p style="color: black;font-weight: bolder; font-size: 12px; text-align: left;"><%= chapter.name %> &#9989;</p>
                   <% end %>
@@ -82,11 +78,9 @@
             </div>
 
             <div>
-            <% if subscription.course.chapters.last.order <= subscription.chapter_completed %>
+    
             <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-            <% else %>
-            <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
-            <% end %>
+           
             </div>
     </div>
     </li>

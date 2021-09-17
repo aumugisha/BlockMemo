@@ -681,9 +681,12 @@ summary:"Summary", order: 7, course: course2)
   Chapter.last.photos.attach(io: file, filename: "block#{i}.jpg", content_type: 'image/jpg')
   file.close
 end
+
+Test.create(question: "Which of these creteria is not relevant for choosing Blockchain for a business ?", answers: ["Number of intermediaries", "Level of collaboration required", "Amount of data exchanged"], 
+correct_answer: "Amount of data exchanged", chapter: Chapter.last)
 #Course number 3 - Let's add on the website that the course will be available soon at the moment
 
-# course = Course.create(name: 'Blockchain and its Properties')
+
 
 
 

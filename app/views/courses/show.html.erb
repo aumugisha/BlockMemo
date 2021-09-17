@@ -111,16 +111,17 @@
     <%# <%= link_to @course.chapters.first.name, course_chapter_path(@course.chapters.first), {:style=>'color:blue'} %>
 
     <%= link_to 'Leave a review', new_course_review_path(course_id: @course), class: "button", style: "margin-bottom: 10px; margin-left: 10px; margin-right: 10px" %>
-    <%= link_to "All chapters", course_chapters_path(@course), class: "button", style: "margin-bottom: 10px; margin-left: 10px; margin-right: 10px" %>
+    <%= link_to "Browse courses", courses_path, class: "button", style: "margin-bottom: 10px; margin-left: 10px; margin-right: 10px" %>
 
   <%# </div> %>
-
+<div class="container  border border-primary text-center" style="background-color: white; border-radius: 5px; padding-top: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"> 
+<h2>Course reviews</h2>
  <ul class="list-group">
   <% @course.reviews.each do |review| %>
-
-  <li class="list-group-item"><%= review.comment %></li>
+  <li class="list-group-item" style="margin:5px"><%= review.comment %></li>
   <% end %>
 </ul>
+</div>
 
 
 
