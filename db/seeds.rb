@@ -23,7 +23,7 @@ i = 1
   i += 1
 end
 
-User.create(email: "arthur@blockmemo.com", password: '123456', password_confirmation: '123456', admin:true, first_name: "Arthur", last_name: Faker::Name.last_name, phone:Faker::PhoneNumber, address:Faker::Address.street_address )
+test_user= User.create(email: "arthur@blockmemo.com", password: '123456', password_confirmation: '123456', admin:true, first_name: "Arthur", last_name: Faker::Name.last_name, phone:Faker::PhoneNumber, address:Faker::Address.street_address )
 puts "arthur@blockmemo.com"
 
 User.create(email: "sino@blockmemo.com", password: '123456', password_confirmation: '123456', admin:true, first_name: "Sino", last_name: Faker::Name.last_name, phone:Faker::PhoneNumber, address:Faker::Address.street_address )
@@ -40,13 +40,13 @@ puts "alan@blockmemo.com"
 
 #course number 1
 
-course = Course.new(name: 'Blockchain fundamentals')
+course1 = Course.new(name: 'Blockchain fundamentals')
 
 file = URI.open("https://images.pexels.com/photos/8370332/pexels-photo-8370332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940.jpg")
 
-course.picture.attach(io: file, filename:"blockchainfund_logo.jpg", content_type:'image/jpg')
+course1.picture.attach(io: file, filename:"blockchainfund_logo.jpg", content_type:'image/jpg')
 
-course.save
+course1.save
 
 Chapter.create(name: 'Chapter I : What is Blockchain ? ', level:1,
 
@@ -77,7 +77,7 @@ By having the majority of participants validate a new transaction, the blockchai
 ●	Decentralization: The concept in which participants work together to validate transactions without relying on a central authority.<br>
 ●	Participant (computer or node): A client (computer or node) that owns a copy of the blockchain and verifies transactions across the network (51% rule). They participate in the network <br><br>',
 
-summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course)
+summary: 'The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs. Blockchain keeps a log of all transactions that have taken place in chronological order....', order: 1, course: course1)
 
 Test.create(question: "What is BlockChain ?", answers: ["The blockchain is a modern back-end programming language", "The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs", "The blockchain is a protocole used to secure transactions on internet"], 
 correct_answer: "The blockchain is similar to a permanent book of records, a record, a ledger, a set of logs", chapter: Chapter.last)
@@ -128,7 +128,7 @@ Since all blocks in the blockchain have a reference to the previous block, the f
 Genesis Block: The genesis block is the first block on the blockchain and it is typically hard-coded into the blockchain structure. Being the first block on the blockchain, it does not have a link to a previous hash.
 ',
 
-summary: 'The Block is the brick of the Blockchain. It contains data, different types of data depending on what the Blockchain is used for...', order: 2, course: course)
+summary: 'The Block is the brick of the Blockchain. It contains data, different types of data depending on what the Blockchain is used for...', order: 2, course: course1)
 
 Test.create(question: "Which of the following blocks is the most secure ?", answers: ["The Genesis Block", "The Block with the most number of transactions", "The latest Block", "The Block with the least number of transactions"], 
 correct_answer: "The Genesis Block", chapter: Chapter.last)
@@ -211,7 +211,8 @@ This essentially creates a trustless system and is the main reason why the block
 Proof-of-Work - A security feature in blockchain to prevent attackers from easily taking over the blockchain.
 ',
 
-summary: 'Unvalidated transactions → As transactions are being carried out, they need to be validated. The Unvalidated transactions are placed in a special location called Mempool, that collects all of the unvalidated transactions..',order: 3, course: course) 
+summary: 'Unvalidated transactions → As transactions are being carried out, they need to be validated. The Unvalidated transactions are placed in a special location called Mempool, that collects all of the unvalidated transactions..',
+order: 3, course: course1) 
 
 Test.create(question: "What is an immutable record ?", answers: ["A record that has no previous record linked to it", "A record that can not be changed", "A record that can't be accessed"], 
 correct_answer: "A record that can not be changed", chapter: Chapter.last)
@@ -244,7 +245,7 @@ Every participant uses their computer and a hash function (typically SHA-256) to
 ●	Miners: Special participants who calculate the Proof-of-Work to mine new blocks.<br>
 ●	Nonce: A number to be guessed by miners which when combined with the block produces an acceptable hash.<br>
 ', 
-summary:'Proof-of-Work is another layer of security added to the validation of the blocks in the blockchain....', order: 4, course: course)
+summary:'Proof-of-Work is another layer of security added to the validation of the blocks in the blockchain....', order: 4, course: course1)
 
 Test.create(question: "What is Proof-of-Work", answers: [" A never-ending guessing game that is impossible to solve", "A problem that is difficult to solve which slows the process of tampering blocks and also to confirm valid blocks", "The amount of computational work done to find blocks"], 
 correct_answer: "A problem that is difficult to solve which slows the process of tampering blocks and also to confirm valid blocks", chapter: Chapter.last)
@@ -279,7 +280,8 @@ Let’s review the key terms:<br><br>
 ●	Trustless: A feature of blockchain that states how the system doesn’t rely on any participant to verify transactions.<br><br>
 ●	Longest Chain: The most trusted chain with the largest amount of computational work done in calculating the Proof-of-Work.<br><br>
 ",
-summary: 'The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain...', order: 5, course: course)
+summary: 'The blockchain participants always consider the longest chain to be the correct one. If someone is able to create the longest chain of blocks (even if the blocks are fake), the network is forced to accept the new chain...', 
+order: 5, course: course1)
 
 Test.create(question: "How does Proof-of-Work secure the Blockchain ?", answers: ["Proof-of-Work secures the blockchain by trusting the longest chain because it is able to hold many transactions", "Proof-of-Work secures the blockchain by trusting the longest chain that has the most amount of computational work done in solving each block's Proof-of-Work", "Proof-of-Work secures the blockchain by making it impossible to tamper with previous blocks"], 
 correct_answer: "Proof-of-Work secures the blockchain by trusting the longest chain that has the most amount of computational work done in solving each block's Proof-of-Work", chapter: Chapter.last)
@@ -305,7 +307,7 @@ There has always been a need of a system that is reliable and robust such that t
 The solution to all of these pain points lies in the Blockchain technology. You might have heard about
 various crypto currencies like Bitcoin ,Ether, Ripple etc and all of these crypto currencies are powered by Blockchain.
 ",
-summary: 'Two examples if scenarios with the use of BlockChain', order: 6, course: course)
+summary: 'Two examples if scenarios with the use of BlockChain', order: 6, course: course1)
 
 
 Test.create(question: "What makes it possible for blockchain to automatticaly and correctly verify transactions ?", answers: ["Cryptography and Hashing", "Anonymous participants","Complete trust among the participants"], 
@@ -322,16 +324,16 @@ end
 
 #course number 2
 
-course = Course.new(name: 'Blockchain and its Properties')
+course2 = Course.new(name: 'Blockchain and its Properties')
 
 
 
 
 file = URI.open("https://images.pexels.com/photos/1099339/pexels-photo-1099339.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260.jpg")
 
-course.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
+course2.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
 
-course.save
+course2.save
 
 
 Chapter.create(name: 'Chapter I : What is Blockchain?', level:2, 
@@ -359,7 +361,7 @@ Decentralizing means storing your assets (money, documents, data in a network ( 
 Every user has plein control of his assets and does not need to rely on any third-party or middle man, or institution or centralized authority.<br>
 You place your trust in the network instead of a single bank or intermediary like a government<br>
 ' ,
-summary: "Blockchain is a tamper-proof distributed digital ledger" , order: 1, course: course)
+summary: "Blockchain is a tamper-proof distributed digital ledger" , order: 1, course: course2)
 
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
@@ -428,7 +430,7 @@ There are 3 people, Lyra, Phil and Matt
 ●	So in the first case, when Lyra sends money to Phil, the transaction will be validated against the ledger which will show that Lyra has one Bitcoin with her, that means that she can transfer 1 Bitcoin to Phil. Thus making it a valid transaction. 
 ●	But in the second transaction, which Lyra does to Matt when the transaction is validated against the ledger, it gets rejected as there is no Bitcoin left with Lyra so she can’t make any transaction to Matt. Thus mitigating the problem of double spending.
 ', 
-summary:' In this course you will learn about decentralization, distributed Ledger, Immutability and Consensus' , order: 2, course: course)
+summary:' In this course you will learn about decentralization, distributed Ledger, Immutability and Consensus' , order: 2, course: course2)
 
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
@@ -466,7 +468,7 @@ This happens because each block contains hash of the previous block. When the 2n
 the old hash becomes invalid and a new hash is generated for the block. This affects all the subsequent blocks in the chain and thus making all of them invalid. 
 This unique property of the blockchain makes it transparent and secure, as in any case of data tampering whole network gets to know which block got compromised in the blockchain.
 " , 
-summary:"Summary", order: 3, course: course)
+summary:"Summary", order: 3, course: course2)
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -530,7 +532,7 @@ Characteristics of Proof-of-Stake (PoS)
 ●	For verifying the transactions and forging the block, forgers need to lock up some of the points at stake. In this situation the coins are held in the escrow (held as a  guarantee) and in case the users are found to be involved in validating a fraudulent transaction, the stakes get slashed and they also lose their right to choose and as a forger in the future. The basic assumption behind this mechanism is the fact that because the coins are at stake they will be highly motivated to validate the right transactions. In proof of stake mechanism crypto currency units are created initially at the time of launch of the currency and their numbers are also fixed. 
 ●	PoS involves a negligible consumption of energy that’s why block creators are not rewarded with the network coins but with the fees
 ", 
-summary:"Summary", order: 4, course: course)
+summary:"Summary", order: 4, course: course2)
 
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
@@ -587,7 +589,7 @@ The corresponding Hash values are fixed length output, so they are finite
 In a scenario like this, two different inputs can have the same Hash → but the property of being collision resistance is that this case should be highly unlikely to happen.
 Even if it happens, the hash function generating the output is encrypted and nobody can decrypt it to find the corresponding input.
 Hash is a one way function
-", order: 5, course: course)
+", order: 5, course: course2)
 
 #  3.times do |i|
 #   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
@@ -640,7 +642,7 @@ Implementation of smart contracts not only reduces the overhead costs for the in
 Ex. of Smart Contracts in the Pharma Supply Chain
 Keep track of the temperature of the vaccines or drugs during their transportation by linking smart Contracts to IoT devices which keep track of the temperature of the vaccines/drugs/products.
 ", 
-summary:"Summary", order: 6, course: course)
+summary:"Summary", order: 6, course: course2)
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
   puts i
@@ -671,7 +673,7 @@ b.	Centralized DB leads to single point of failure and easy to hack ⇒ Blockcha
 
 
 ", 
-summary:"Summary", order: 7, course: course)
+summary:"Summary", order: 7, course: course2)
 
 3.times do |i|
   file = URI.open('https://source.unsplash.com/1600x900/?blockchain')
@@ -687,8 +689,14 @@ end
 
 #course 3
 
-course1 = Course.create(name: "Ethereum 101 #{i}")
+course3 = Course.create(name: "Ethereum 101 #{i}")
 
+
+file = URI.open("https://images.pexels.com/photos/730552/pexels-photo-730552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+
+course3.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
+
+course3.save
 
 Chapter.create(name: 'What is Ethereum?', level:1, content: '
 
@@ -735,7 +743,7 @@ There is a second type of token that is used to pay miners fees for including tr
 
 ',
 
-summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course1)
+summary: 'If you want to know what is ethereum, how it works, and what it can be used for, without going deep into the technical abyss, this guide is perfect for you.', order: 1, course: course3)
 
 Chapter.create(
 name: 'What is a Ethereum smart contract?',
@@ -767,7 +775,7 @@ Ethereum has recently created a new standard called the ERC721 token for trackin
 Many games are currently being built using this technology, such as the overnight hit CryptoKitties, a game where you can collect and breed digital cats.
   
   ',
-  order: 2, course: course1)
+  order: 2, course: course3)
 
 Chapter.create(
 name: 'What are the benefits of a decentralized ethereum Platform?',
@@ -841,7 +849,7 @@ Consortia blockchains: In two years, many companies will have started to build b
 Business use of public blockchains: Some companies will employ public ethereum with their use cases that employ the same stack of blockchain components that they have purchased or built for their private Ethereum-based implementations.
 
   ',
-  order: 3, course: course1)
+  order: 3, course: course3)
 
 
 puts "Ethereum 101 # #{i}"
@@ -856,6 +864,11 @@ puts  "Seed Done"
 
 course4= Course.create(name: 'Cryptocurrency for Investors')
 
+file = URI.open("https://images.pexels.com/photos/241544/pexels-photo-241544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+
+course4.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
+
+course4.save
 
 Chapter.create(
 level:1,
@@ -1135,6 +1148,12 @@ course: course4)
 
 course5 = Course.create(name: 'How To Invest in Cryptocurrencies: The Ultimate Beginners Guide')
 
+file = URI.open("https://images.pexels.com/photos/6771664/pexels-photo-6771664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+
+course5.picture.attach(io: file, filename:"pexels-worldspectrum-1099339.jpg", content_type:'image/jpg')
+
+course5.save
+
 Chapter.create(
 name: 'How to invest in Cryptocurrency',
 level:1,
@@ -1356,4 +1375,7 @@ Chapter.create(
   ',
   order: 4, course: course5)
 
+
+Subscription.create(course: course1, chapter_completed: 6, user: test_user, completed: false)
+Subscription.create(course: course2, chapter_completed: 7, user: test_user)
 

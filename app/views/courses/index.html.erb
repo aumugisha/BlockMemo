@@ -22,19 +22,24 @@
 <div class="row">
   <% @courses.each do |course|  %>
       <div class="column">
-        <div class="card">
+        <div class="card d-flex flex-column justify-content-between" style="height: 650px">
+        <div>
           <% if course.picture.attached? %>
-            <%= cl_image_tag course.picture.key, style: "min-height: 589px; min-width: 589px;" %>
+            <%= cl_image_tag course.picture.key, style: "height: 300px;" %>
           <% else %>
-            <%= image_tag "Ramiro.jpg" %>
+            <%= image_tag "Ramiro.jpg", style: "height: 300px" %>
           <% end %>
-          <div class="container_about">
-            <h2 style="margin-top: 20px"><%= course.name %></h2>
-            <div class="align-self-end">
+        </div>
+        <div>
+            <h2 style="margin-top: 20px;"><%= course.name %></h2>
+        
+        </div>
+          <div >
             <p class="title"><%= link_to "Details", course_path(course), class: "button", style: "margin-left: 10px; margin-right: 10px; margin-top: 60px" %></p>
             <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "button", style: " margin-bottom: 60px; margin-left: 10px; margin-right: 10px" %></p>
-            </div>
-          </div>
+        </div>
+          
+          
         </div>
     </div>
   <% end %>

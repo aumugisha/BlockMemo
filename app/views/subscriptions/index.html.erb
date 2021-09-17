@@ -9,7 +9,13 @@
     <% @subscriptions.where("completed= ?", true).each do |subscription|  %>
     <li class="cards__item">
       <div class="card d-flex flex-column justify-content-between">
-        <div class="card__image card__image--fence"></div>
+        <div>
+        <% if subscription.course.picture.attached? %>
+            <%= cl_image_tag subscription.course.picture.key %>
+          <% else %>
+            <%= image_tag "Ramiro.jpg" %>
+          <% end %>
+        </div>
           <div class="card__content">
             <div class="card__title"><%= subscription.course.name %></div>
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
@@ -47,7 +53,13 @@
     <% @subscriptions.where("completed= ?", false).each do |subscription|  %>
     <li class="cards__item">
       <div class="card d-flex flex-column justify-content-between">
-        <div class="card__image card__image--fence"></div>
+        <div >
+        <% if subscription.course.picture.attached? %>
+            <%= cl_image_tag subscription.course.picture.key %>
+          <% else %>
+            <%= image_tag "Ramiro.jpg" %>
+          <% end %>
+        </div>
           <div class="card__content">
             <div class="card__title"><%= subscription.course.name %></div>
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
@@ -68,11 +80,14 @@
           
                 <% end %>
             </div>
-            <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
+
+            <div>
+            <% if subscription.course.chapters.last.order <= subscription.chapter_completed %>
             <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
             <% else %>
             <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
             <% end %>
+            </div>
     </div>
     </li>
     <% end  %>
@@ -87,16 +102,22 @@
 <div class="row ">
   <% @courses.each do |course|  %>
       <div class="column" style="margin:auto;">
-        <div class="card" style="height:600px">
+        <div class="card d-flex flex-column justify-content-between" style="height:550px">
+        <div>
           <% if course.picture.attached? %>
-            <%= cl_image_tag course.picture.key, style: "height: 200px;" %>
+            <%= cl_image_tag course.picture.key, style: "height: 200px; width:300px" %>
           <% else %>
-            <%= image_tag "Ramiro.jpg", style: "height: 200px;" %>
+            <%= image_tag "Ramiro.jpg", style: "height: 200px; with:300px" %>
           <% end %>
-          <div class="container_about">
-            <h2 style="margin-top: 5px"><%= course.name %></h2>
+        </div>
+
+        <div>
+            <h4 style="margin-top: 5px"><%= course.name %></h4>
         
-            <p class="title"><%= link_to "Details", course_path(course), class: "button", style: "margin-left: 10px; margin-right: 10px; margin-top: 10px" %></p>
+        </div>
+          <div >
+        
+            <p class="title"><%= link_to "Details", course_path(course), class: "button", style: "margin-left: 10px; margin-right: 5px; margin-top: 10px" %></p>
             <p><%= link_to 'Subcribe', subscriptions_path(subscription: {course_id: course}), method: :post , class: "button", style: " margin-bottom: 20px; margin-left: 10px; margin-right: 10px" %></p>
          
           </div>
