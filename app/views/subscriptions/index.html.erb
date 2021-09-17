@@ -36,7 +36,7 @@
           
                 <% end %>
             </div>
-            <% if subscription.course.chapters[-1].order >= subscription.chapter_completed %>
+            <% if subscription.course.chapters.last.order <= subscription.chapter_completed %>
             <%= link_to "Resume", course_chapter_path(subscription.course, subscription.chapter_completed + 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>
             <% else %>
             <%= link_to "Restart", course_chapter_path(subscription.course, subscription.chapter_completed + 1, restart: 1), class: "button", style: "margin-left: 10px; margin-right: 10px"%>

@@ -1376,6 +1376,6 @@ Chapter.create(
   order: 4, course: course5)
 
 
-Subscription.create(course: course1, chapter_completed: 6, user: test_user, completed: false)
+Subscription.create(course: course1, chapter_completed: 7, user: test_user, completed: true)
 Subscription.create(course: course2, chapter_completed: 7, user: test_user)
 
