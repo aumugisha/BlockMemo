@@ -21,7 +21,7 @@
               <p class="card-text p-y-1" style="margin-top: 10px; margin-bottom: 10px;">Progress : 
               Course completed
               <br>
-                <%  subscription.course.chapters.each do |chapter| %>
+                <%  subscription.course.chapters.order(order: :asc).each do |chapter| %>
                   <%  if chapter.order < subscription.chapter_completed  %>
                      <p style="color: black;font-weight: bolder; font-size: 12px; text-align: left;"><%= chapter.name %> &#9989;</p>
                   <% end %>
